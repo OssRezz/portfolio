@@ -1,17 +1,70 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Container, Row, Col } from "react-bootstrap";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { BarNav } from "./components/BarNav.jsx";
+import { About } from "./components/About.jsx";
+import { Skills } from "./components/Skills.jsx";
+import { Experience } from "./components/Experience.jsx";
+import { Education } from "./components/Education.jsx";
+import { Projects } from "./components/Projects.jsx";
+//
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <>
+    <Container fluid className="mb-5">
+      <Row>
+        <BarNav />
+      </Row>
+    </Container>
+    <Container>
+      <Row id="about">
+        <About />
+      </Row>
+      <Row id="skills">
+        <Col className="col-12 text-center py-5">
+          <div className="display-6 text-secondary">
+            <b>Skills</b>
+          </div>
+        </Col>
+      </Row>
+      <Row className="d-flex justify-content-center mt-5">
+        <Skills />
+      </Row>
+      <Row id="experience">
+        <Col className="col-12 text-center py-5">
+          <div className="display-6 text-secondary">
+            <b>Experience</b>
+          </div>
+        </Col>
+      </Row>
+      <Row className="d-flex justify-content-center my-5">
+        <Experience />
+      </Row>
+      <Row id="education">
+        <Col className="col-12 text-center py-5">
+          <div className="display-6 text-secondary">
+            <b>Education</b>
+          </div>
+        </Col>
+      </Row>
+      <Row className="d-flex justify-content-center my-5">
+        <Education />
+      </Row>
+      <Row id="projects">
+        <Col className="col-12 text-center py-5">
+          <div className="display-6 text-secondary">
+            <b>Projects</b>
+          </div>
+        </Col>
+      </Row>
+      <Row className="d-flex justify-content-center my-5">
+        <Projects />
+      </Row>
+      <Col id="bmc-wbtn"></Col>
+    </Container>
+  </>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
