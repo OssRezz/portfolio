@@ -1,12 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import React from "react";
+import React, { useState } from "react";
+
 import { Row, Col, Card, Button } from "react-bootstrap";
 
 import foto from "../assets/img/picture.jpg";
 import curriculum from "../assets/curriculum/curriculumEn.pdf";
+import { ModalContact } from "./ModalContact.jsx";
 
 export function About() {
+  const [modalShow, setModalShow] = useState(false);
   return (
     <>
       <Col>
@@ -51,7 +54,11 @@ export function About() {
                 >
                   <i className="bi bi-download"></i> Curriculum
                 </Button>
-                <Button variant="primary" className="btn-sm">
+                <Button
+                  variant="primary"
+                  className="btn-sm"
+                  onClick={() => setModalShow(true)}
+                >
                   <i className="bi bi-envelope-heart"></i> Contact me
                 </Button>
               </Col>
@@ -85,6 +92,7 @@ export function About() {
           </Card.Body>
         </Card>
       </Col>
+      <ModalContact show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );
 }

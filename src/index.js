@@ -64,6 +64,11 @@ root.render(
       <Row className="d-flex justify-content-center my-5">
         <Projects />
       </Row>
+      <Row className="d-flex justify-content-center my-5">
+        <small className="text-muted text-center">
+          <i className="bi bi-c-circle"></i> 2022 James Osorio Florez
+        </small>
+      </Row>
       <Col id="bmc-wbtn"></Col>
     </Container>
   </>
