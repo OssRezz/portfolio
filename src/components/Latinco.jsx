@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
-import { Row, Col, Card, Carousel, Badge } from "react-bootstrap";
+import { Row, Col, Card, Carousel, Badge, ListGroup } from "react-bootstrap";
 import cdeImg from "../assets/img/cde.png";
 
 import latinco_1 from "../assets/img/latinco/latinco-1.png";
@@ -48,32 +48,37 @@ export function Latinco() {
                 <h5 className="text-center mb-5 text-dark">Latinco</h5>
                 <h6 className="text-center mb-1 text-dark">Description</h6>
                 <Col className="mb-3 mt-2">
-                  GymPlus es un Gimnasio con 4 sedes en la ciudad de Medellin,
-                  departamento de Antioquia.{" "}
+                  Latinco is a company that is part of the execution of big projects involving highway interconnection in Colombia.{" "}
                   <b>
                     <em>
-                      El objectivo de la aplicacion es permitir a sus usuarios
-                      reservar una sus clases de Cycling(Spinning)
+                      The objective of the application is to evade human mistakes and generate reports for the different areas of the
+                      company. This process was done on Excel.
                     </em>
                   </b>
+                  <br />
+                  The application consumes an ERP and allows the users to manage the administrative processes of the company.
                 </Col>
                 <Col className="text-center">
-                  La aplicacion permite administrar los mapas de cada sede,
-                  clases, profesores, reservas, asistencias y cargar los
-                  usuarios con planes activos al sistema desde un archivo de
-                  excel para que estos puedan usar su identificacion al momento
-                  de reservar una bicicleta.
+                  <ListGroup className="bg-light">
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Manage inability and inability extensions</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Personal entry control with follow-up on the medic process and reference investigations</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Cash flow</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Laboral cost</small>
+                    </ListGroup.Item>
+                  </ListGroup>
                 </Col>
-                <h6 className="text-center mb-1 mt-3 text-dark">
-                  Technologies
-                </h6>
+                <h6 className="text-center mb-1 mt-3 text-dark">Technologies</h6>
                 <Col className="mb-1 text-center  mt-2 mb-2">
-                  Aplicacion desarrollada en Laravel, Las tecnologias
-                  implementadas son <b className="text-secondary">html</b>,{" "}
-                  <b className="text-secondary">Bootstrap</b> para los estilos y
-                  maquetacion, <b className="text-secondary">JavaScript puro</b>{" "}
-                  y <b className="text-secondary">Ajax</b> para interatuar con
-                  las acciones del usuario. Base de datos MySQL
+                  Developed in the framework of <b className="text-secondary">PHP Laravel</b>, with the database
+                  <b className="text-secondary"> MySQL, JavaScript</b> and <b className="text-secondary">Ajax</b> to render content in real
+                  time and interact with the user, <b className="text-secondary">Bootstrap 5</b> for the styles and design of the page.
                 </Col>
                 <Col className="text-center">
                   <small>
@@ -86,6 +91,11 @@ export function Latinco() {
                   </small>
                   <small>
                     <Badge bg="primary">Bootstrap</Badge>
+                  </small>
+                  <small>
+                    <Badge bg="secondary" className="mx-1">
+                      SOAP
+                    </Badge>
                   </small>
                   <small>
                     <Badge bg="info" className="text-dark mx-1">

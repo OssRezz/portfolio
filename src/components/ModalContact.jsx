@@ -1,14 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React, { useState } from "react";
-import {
-  Button,
-  Modal,
-  FloatingLabel,
-  Form,
-  ToastContainer,
-  Toast,
-} from "react-bootstrap";
+import { Button, Modal, FloatingLabel, Form, ToastContainer, Toast } from "react-bootstrap";
 import axios from "axios";
 
 export function ModalContact(props) {
@@ -24,17 +17,16 @@ export function ModalContact(props) {
     message: "",
     title: "",
   });
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
 
   const handleChangeText = (name, value) => {
     setState({ ...state, [name]: value });
   };
 
-  const enviarMessage = () => {
-    if (
-      validate(state.email) === false ||
-      validate(state.subject) === false ||
-      validate(state.message) === false
-    ) {
+  const enviarMessage = async () => {
+    if (validate(state.email) === false || validate(state.subject) === false || validate(state.message) === false) {
       setToastContent({
         ...toastContent,
         color: "dark",
@@ -44,35 +36,44 @@ export function ModalContact(props) {
       setShow(true);
       return;
     }
+    if (isValidEmail(state.email) !== true) {
+      setToastContent({
+        ...toastContent,
+        color: "dark",
+        message: "An email is required",
+        title: "Information",
+      });
+      setShow(true);
+      return;
+    }
 
-    axios
-      .post("https://ossrezz.me/apigalaxia/public/api/emails/create", state)
+    await axios
+      .post("https://ossrezz.me/apigalaxia/public/api/emails/create", { state })
       .then((response) => {
-        console.log(response);
         setToastContent({
           ...toastContent,
           color: "dark",
-          message: response.data.status,
+          message: "The message was sended, i will contact you soon",
           title: "Information",
         });
+        setState({
+          ...state,
+          email: "",
+          message: "",
+          subject: "",
+        });
+        setShow(true);
       })
       .catch((error) => {
         console.log(error);
         setToastContent({
           ...toastContent,
-          color: "dark",
-          message: error.data.status,
+          color: "danger",
+          message: JSON.stringify(error),
           title: "Information",
         });
+        setShow(true);
       });
-
-    setState({
-      ...state,
-      email: "",
-      message: "",
-      subject: "",
-    });
-    setShow(true);
   };
 
   const validate = (validar) => {
@@ -89,23 +90,12 @@ export function ModalContact(props) {
 
   return (
     <>
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
+      <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            GET IN TOUCH
-          </Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">GET IN TOUCH</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <FloatingLabel
-            controlId="floatingEmail"
-            label="Email"
-            className="mb-3"
-          >
+          <FloatingLabel controlId="floatingEmail" label="Email" className="mb-3">
             <Form.Control
               type="email"
               placeholder="name@example.com"
@@ -113,11 +103,7 @@ export function ModalContact(props) {
               value={state.email}
             />
           </FloatingLabel>
-          <FloatingLabel
-            controlId="floatingSubject"
-            label="Subject"
-            className="mb-3"
-          >
+          <FloatingLabel controlId="floatingSubject" label="Subject" className="mb-3">
             <Form.Control
               type="text"
               placeholder="Subject"
@@ -136,30 +122,16 @@ export function ModalContact(props) {
           </FloatingLabel>
         </Modal.Body>
         <Modal.Footer>
-          <Button
-            variant="danger"
-            className="rounded-pill"
-            onClick={props.onHide}
-          >
+          <Button variant="danger" className="rounded-pill" onClick={props.onHide}>
             <i className="bi bi-x-circle-fill"></i>
           </Button>
-          <Button
-            variant="primary"
-            className="rounded-pill"
-            onClick={enviarMessage}
-          >
+          <Button variant="primary" className="rounded-pill" onClick={enviarMessage}>
             <i className="bi bi-send-fill"></i>
           </Button>
         </Modal.Footer>
       </Modal>
       <ToastContainer position="top-end" className="p-3 position-fixed">
-        <Toast
-          show={show}
-          bg={toastContent.color}
-          onClose={() => setShow(false)}
-          delay={3000}
-          autohide
-        >
+        <Toast show={show} bg={toastContent.color} onClose={() => setShow(false)} delay={3000} autohide>
           <Toast.Header>
             <strong className="me-auto">{toastContent.title}</strong>
           </Toast.Header>

@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
-import { Row, Col, Card, Carousel, Badge } from "react-bootstrap";
+import { Row, Col, Card, Carousel, Badge, ListGroup } from "react-bootstrap";
 import cdeImg from "../assets/img/cde.png";
 
 import cycling_1 from "../assets/img/cycling/cycling-1.png";
@@ -21,32 +21,40 @@ export function Cycling() {
                 <h5 className="text-center mb-5 text-dark">GymPlus</h5>
                 <h6 className="text-center mb-1 text-dark">Description</h6>
                 <Col className="mb-3 text-center mt-2">
-                  GymPlus es un Gimnasio con 4 sedes en la ciudad de Medellin,
-                  departamento de Antioquia.{" "}
+                  GymPlus is a company with four headquarters in the city of Medellin, Antioquia.{" "}
                   <b>
-                    <em>
-                      El objectivo de la aplicacion es permitir a sus usuarios
-                      reservar una sus clases de Cycling(Spinning)
-                    </em>
+                    <em> The objective of the application is to allow users to reserve a class of spinning(cycling).</em>
                   </b>
                 </Col>
-                <Col className="text-center">
-                  La aplicacion permite administrar los mapas de cada sede,
-                  clases, profesores, reservas, asistencias y cargar los
-                  usuarios con planes activos al sistema desde un archivo de
-                  excel para que estos puedan usar su identificacion al momento
-                  de reservar una bicicleta.
+                <Col className="text-center col-12">
+                  <b>The application allows management:</b>
+                  <ListGroup className="bg-light">
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Bicycles map</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Spinning classes</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Teachers</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Reserves</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Asistences</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Users with active plans (Excel spreadsheet generated from another application)</small>
+                    </ListGroup.Item>
+                  </ListGroup>
                 </Col>
-                <h6 className="text-center mb-1 mt-3 text-dark">
-                  Technologies
-                </h6>
+                <h6 className="text-center mb-1 mt-3 text-dark">Technologies</h6>
                 <Col className="mb-1 text-center  mt-2 mb-2">
-                  Aplicacion desarrollada en Laravel, Las tecnologias
-                  implementadas son <b className="text-secondary">html</b>,{" "}
-                  <b className="text-secondary">Bootstrap</b> para los estilos y
-                  maquetacion, <b className="text-secondary">JavaScript puro</b>{" "}
-                  y <b className="text-secondary">Ajax</b> para interatuar con
-                  las acciones del usuario. Base de datos MySQL
+                  Application created using the <b className="text-secondary">PHP Laravel </b>framework. The technologies implemented are{" "}
+                  <b className="text-secondary">HTML, Boostrap 5 </b>for the styles and layout,{" "}
+                  <b className="text-secondary">pure JavaScript</b> and <b className="text-secondary">Ajax</b> to interact with the actions
+                  of the user. For database <b className="text-secondary">MySQL</b>
                 </Col>
                 <Col className="text-center">
                   <small>

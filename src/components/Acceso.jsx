@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
-import { Row, Col, Card, Carousel, Badge } from "react-bootstrap";
+import { Row, Col, Card, Carousel, Badge, ListGroup } from "react-bootstrap";
 import galaxiaImg from "../assets/img/galaxia.png";
 
 import acceso_1 from "../assets/img/acceso/acceso-1.png";
@@ -46,35 +46,45 @@ export function Acceso() {
           <Card.Body>
             <Row>
               <Col className="col-12  text-secondary text-center">
-                <h5 className="text-center mb-5 text-dark">Acceso</h5>
+                <h5 className="text-center mb-5 text-dark">Control of access</h5>
                 <h6 className="text-center mb-1 text-dark">Description</h6>
                 <Col className="mb-3 mt-2">
-                  GymPlus es un Gimnasio con 4 sedes en la ciudad de Medellin,
-                  departamento de Antioquia.{" "}
+                  Galaxia Seguridad Ltda. is a security company with various national (Colombia) services.{" "}
                   <b>
-                    <em>
-                      El objectivo de la aplicacion es permitir a sus usuarios
-                      reservar una sus clases de Cycling(Spinning)
-                    </em>
+                    <em>The goal of this project is to provide an application for access control as a service.</em>
                   </b>
                 </Col>
                 <Col className="text-center">
-                  La aplicacion permite administrar los mapas de cada sede,
-                  clases, profesores, reservas, asistencias y cargar los
-                  usuarios con planes activos al sistema desde un archivo de
-                  excel para que estos puedan usar su identificacion al momento
-                  de reservar una bicicleta.
+                  <ListGroup className="bg-light">
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Parameterization by company</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Parameterization of zones (pools, soccer fields, food zones, etc.)</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Persona type parameterization (provider, employee, visitor, domiciliario, etc.)</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Type of origin (potential visitor destinations)</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Attachments (Arma, computers, car plates)</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Register of Visitants</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Give access to visitors</small>
+                    </ListGroup.Item>
+                  </ListGroup>
                 </Col>
-                <h6 className="text-center mb-1 mt-3 text-dark">
-                  Technologies
-                </h6>
+                <h6 className="text-center mb-1 mt-3 text-dark">Technologies</h6>
                 <Col className="mb-1 text-center  mt-2 mb-2">
-                  Aplicacion desarrollada en Laravel, Las tecnologias
-                  implementadas son <b className="text-secondary">html</b>,{" "}
-                  <b className="text-secondary">Bootstrap</b> para los estilos y
-                  maquetacion, <b className="text-secondary">JavaScript puro</b>{" "}
-                  y <b className="text-secondary">Ajax</b> para interatuar con
-                  las acciones del usuario. Base de datos MySQL
+                  The application was developed in the programming language <b className="text-secondary">PHP</b> with the architectural
+                  pattern <b className="text-secondary">MVC.</b> The technologies implemented are <b className="text-secondary">HTML</b> ,{" "}
+                  <b className="text-secondary">Bootstrap 4</b> for styles and layoud. <b className="text-secondary">JQuery</b> to send and
+                  receive information from the controllers. <b className="text-secondary">MySQL</b> for database.
                 </Col>
                 <Col className="text-center">
                   <small>

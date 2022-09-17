@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
-import { Row, Col, Card, Carousel, Badge } from "react-bootstrap";
+import { Row, Col, Card, Carousel, Badge, ListGroup } from "react-bootstrap";
 import galaxiaImg from "../assets/img/galaxia.png";
 
 import analisis_1 from "../assets/img/analisis/analisis-1.png";
@@ -18,35 +18,68 @@ export function GalaxiaERP() {
           <Card.Body>
             <Row>
               <Col className="col-12  text-secondary">
-                <h5 className="text-center mb-5 text-dark">Galaxia ERP</h5>
+                <h5 className="text-center mb-5 text-dark">Galaxia Seguridad ERP</h5>
                 <h6 className="text-center mb-1 text-dark">Description</h6>
                 <Col className="mb-3 text-center mt-2">
-                  GymPlus es un Gimnasio con 4 sedes en la ciudad de Medellin,
-                  departamento de Antioquia.{" "}
+                  Galaxia Seguridad Ltda is a security company with different services.{" "}
                   <b>
-                    <em>
-                      El objectivo de la aplicacion es permitir a sus usuarios
-                      reservar una sus clases de analisis(Spinning)
-                    </em>
+                    <em>The objective of this project is to integrate every process of the company into an ERP.</em>
                   </b>
                 </Col>
                 <Col className="text-center">
-                  La aplicacion permite administrar los mapas de cada sede,
-                  clases, profesores, reservas, asistencias y cargar los
-                  usuarios con planes activos al sistema desde un archivo de
-                  excel para que estos puedan usar su identificacion al momento
-                  de reservar una bicicleta.
+                  <b>Commercial module</b>
+                  <ListGroup className="bg-light mb-2">
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Manage companies</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Manage headquarters</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Managing newly acquired positions and services</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Provider of security services </small>
+                    </ListGroup.Item>
+                  </ListGroup>
+
+                  <b>Human Resources Module</b>
+                  <ListGroup className="bg-light mb-2">
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Manage employees</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Managed employees' binary files</small>
+                    </ListGroup.Item>
+                  </ListGroup>
+
+                  <b>Risk Analysis Module</b>
+                  <ListGroup className="bg-light mb-2">
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Perimeter location, number of support groups (police, hospitals, armed forces)</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Vulnerability rating (Lighting, infrastructure, historical context..etc)</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Heat map with a risk rating based on impact and probability</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Risk treatments and proposals to improve treatment.</small>
+                    </ListGroup.Item>
+                    <ListGroup.Item className="p-1 m-0 bg-light">
+                      <small>Recommendations from the executive in charge of analyzing and monitoring</small>
+                    </ListGroup.Item>
+                  </ListGroup>
                 </Col>
-                <h6 className="text-center mb-1 mt-3 text-dark">
-                  Technologies
-                </h6>
+                <h6 className="text-center mb-1 mt-3 text-dark">Technologies</h6>
                 <Col className="mb-1 text-center  mt-2 mb-2">
-                  Aplicacion desarrollada en Laravel, Las tecnologias
-                  implementadas son <b className="text-secondary">html</b>,{" "}
-                  <b className="text-secondary">Bootstrap</b> para los estilos y
-                  maquetacion, <b className="text-secondary">JavaScript puro</b>{" "}
-                  y <b className="text-secondary">Ajax</b> para interatuar con
-                  las acciones del usuario. Base de datos MySQL
+                  Application created with the programming language <b className="text-secondary">PHP </b> with the architectural pattern{" "}
+                  <b className="text-secondary">MVC.</b> The technologies implemented are <b className="text-secondary">HTML</b> and{" "}
+                  <b className="text-secondary"> Bootstrap 5 </b> for the styles and layout of the page.{" "}
+                  <b className="text-secondary"> JavaScript </b> and <b className="text-secondary"> Ajax </b>to interact with the users'
+                  actions. We use Amazon Web Service <b className="text-secondary"> S3 </b> to store images, binary files and{" "}
+                  <b className="text-secondary"> MySQL </b> for the database.
                 </Col>
                 <Col className="text-center">
                   <small>
@@ -63,6 +96,11 @@ export function GalaxiaERP() {
                   <small>
                     <Badge bg="info" className="text-dark mx-1">
                       MySQL
+                    </Badge>
+                  </small>
+                  <small>
+                    <Badge bg="secondary" className=" mx-1">
+                      API
                     </Badge>
                   </small>
                 </Col>
