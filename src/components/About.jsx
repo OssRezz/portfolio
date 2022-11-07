@@ -28,8 +28,11 @@ export function About() {
               <Col className="col-12 text-start  mb-3 text-secondary">
                 <i className="bi bi-mortarboard text-dark"></i> Analisis y desarrollo de sistemas de información
               </Col>
-              <Col className="col-12 text-start  text-secondary">
+              <Col className="col-12 text-start mb-3 text-secondary">
                 <i className="bi bi-geo-alt text-dark"></i> Rionegro, Colombia
+              </Col>
+              <Col className="col-12 text-start  text-secondary">
+                <i className="bi bi-at text-dark"></i> OssRezz.13@gmail.com
               </Col>
               <Col className="col-12 text-start  my-4 text-secondary">
                 <small>
@@ -48,9 +51,9 @@ export function About() {
                 <Button variant="primary" className="mx-1 btn-sm" href={curriculum} download="curriculumEn">
                   <i className="bi bi-download"></i> Curriculum
                 </Button>
-                <Button variant="primary" className="btn-sm" onClick={() => setModalShow(true)}>
+                {/* <Button variant="primary" className="btn-sm" onClick={() => setModalShow(true)}>
                   <i className="bi bi-envelope-heart"></i> Contact me
-                </Button>
+                </Button> */}
               </Col>
               <Col className="col-6 text-end ">
                 <a className="refereces" href="https://github.com/OssRezz" target="_blank" rel="noreferrer">
