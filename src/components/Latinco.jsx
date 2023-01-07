@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
-import { Row, Col, Card, Carousel, Badge, ListGroup } from "react-bootstrap";
+import { Row, Col, Card, Carousel, Badge } from "react-bootstrap";
 import cdeImg from "../assets/img/cde.png";
 
 import latinco_1 from "../assets/img/latinco/latinco-1.png";
@@ -57,22 +57,6 @@ export function Latinco() {
                   </b>
                   <br />
                   The application consumes an ERP and allows the users to manage the administrative processes of the company.
-                </Col>
-                <Col className="text-center">
-                  <ListGroup className="bg-light">
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Manage inability and inability extensions</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Personal entry control with follow-up on the medic process and reference investigations</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Cash flow</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Laboral cost</small>
-                    </ListGroup.Item>
-                  </ListGroup>
                 </Col>
                 <h6 className="text-center mb-1 mt-3 text-dark">Technologies</h6>
                 <Col className="mb-1 text-center  mt-2 mb-2">

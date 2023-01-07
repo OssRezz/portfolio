@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
-import { Row, Col, Card, Carousel, Badge, ListGroup } from "react-bootstrap";
+import { Row, Col, Card, Carousel, Badge } from "react-bootstrap";
 import galaxiaImg from "../assets/img/galaxia.png";
 
 import analisis_1 from "../assets/img/analisis/analisis-1.png";
@@ -25,52 +25,6 @@ export function GalaxiaERP() {
                   <b>
                     <em>The objective of this project is to integrate every process of the company into an ERP.</em>
                   </b>
-                </Col>
-                <Col className="text-center">
-                  <b>Commercial module</b>
-                  <ListGroup className="bg-light mb-2">
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Manage companies</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Manage headquarters</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Managing newly acquired positions and services</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Provider of security services </small>
-                    </ListGroup.Item>
-                  </ListGroup>
-
-                  <b>Human Resources Module</b>
-                  <ListGroup className="bg-light mb-2">
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Manage employees</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Managed employees' binary files</small>
-                    </ListGroup.Item>
-                  </ListGroup>
-
-                  <b>Risk Analysis Module</b>
-                  <ListGroup className="bg-light mb-2">
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Perimeter location, number of support groups (police, hospitals, armed forces)</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Vulnerability rating (Lighting, infrastructure, historical context..etc)</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Heat map with a risk rating based on impact and probability</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Risk treatments and proposals to improve treatment.</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Recommendations from the executive in charge of analyzing and monitoring</small>
-                    </ListGroup.Item>
-                  </ListGroup>
                 </Col>
                 <h6 className="text-center mb-1 mt-3 text-dark">Technologies</h6>
                 <Col className="mb-1 text-center  mt-2 mb-2">

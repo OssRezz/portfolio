@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
-import { Row, Col, Card, Carousel, Badge, ListGroup } from "react-bootstrap";
+import { Row, Col, Card, Carousel, Badge } from "react-bootstrap";
 import cdeImg from "../assets/img/cde.png";
 
 import cycling_1 from "../assets/img/cycling/cycling-1.png";
@@ -25,29 +25,6 @@ export function Cycling() {
                   <b>
                     <em> The objective of the application is to allow users to reserve a class of spinning(cycling).</em>
                   </b>
-                </Col>
-                <Col className="text-center col-12">
-                  <b>The application allows management:</b>
-                  <ListGroup className="bg-light">
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Bicycles map</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Spinning classes</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Teachers</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Reserves</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Asistences</small>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="p-1 m-0 bg-light">
-                      <small>Users with active plans (Excel spreadsheet generated from another application)</small>
-                    </ListGroup.Item>
-                  </ListGroup>
                 </Col>
                 <h6 className="text-center mb-1 mt-3 text-dark">Technologies</h6>
                 <Col className="mb-1 text-center  mt-2 mb-2">

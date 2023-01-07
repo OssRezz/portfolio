@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { Row, Col, Card, Button } from "react-bootstrap";
 
 import foto from "../assets/img/me.jpg";
-import curriculum from "../assets/curriculum/curriculumEn.pdf";
+import curriculum from "../assets/curriculum/curriculumEs.pdf";
 import { ModalContact } from "./ModalContact.jsx";
 
 export function About() {
@@ -26,13 +26,13 @@ export function About() {
                 </div>
               </Col>
               <Col className="col-12 text-start  mb-3 text-secondary">
-                <i className="bi bi-mortarboard text-dark"></i> Analisis y desarrollo de sistemas de información
+                <i className="bi bi-mortarboard text-primary"></i> Web developer FullStack
               </Col>
               <Col className="col-12 text-start mb-3 text-secondary">
-                <i className="bi bi-geo-alt text-dark"></i> Rionegro, Colombia
+                <i className="bi bi-geo-alt text-primary"></i> Rionegro, Colombia
               </Col>
               <Col className="col-12 text-start  text-secondary">
-                <i className="bi bi-at text-dark"></i> OssRezz.13@gmail.com
+                <i className="bi bi-at text-primary"></i> OssRezz.13@gmail.com
               </Col>
               <Col className="col-12 text-start  my-4 text-secondary">
                 <small>
@@ -48,7 +48,7 @@ export function About() {
                 </small>
               </Col>
               <Col className="col-12 text-start  mb-4">
-                <Button variant="primary" className="mx-1 btn-sm" href={curriculum} download="curriculumEn">
+                <Button variant="primary" className="mx-1 btn-sm" href={curriculum} download="curriculumES">
                   <i className="bi bi-download"></i> Curriculum
                 </Button>
                 {/* <Button variant="primary" className="btn-sm" onClick={() => setModalShow(true)}>
