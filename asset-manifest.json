@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.2882eef5.css",
-    "main.js": "/portfolio/static/js/main.5b3724a3.js",
+    "main.js": "/portfolio/static/js/main.bb8e5bb0.js",
+    "static/media/curriculumEs.pdf": "/portfolio/static/media/curriculumEs.6951783f0852d6e207fc.pdf",
     "static/media/cycling-1.png": "/portfolio/static/media/cycling-1.f3436399b2a5dac97dc6.png",
     "static/media/cycling-2.png": "/portfolio/static/media/cycling-2.f45a74571f5a7a73cb01.png",
     "static/media/cde.png": "/portfolio/static/media/cde.24e5469cf00140361cbb.png",
     "static/media/galaxia.png": "/portfolio/static/media/galaxia.b1a78d447f40df5cc32e.png",
-    "static/media/curriculumEn.pdf": "/portfolio/static/media/curriculumEn.e109764afc4219ee80d4.pdf",
     "static/media/latinco-5.png": "/portfolio/static/media/latinco-5.e77dcbcb2903efedb6b7.png",
     "static/media/analisis-5.png": "/portfolio/static/media/analisis-5.1162f2dc2777b2366ccc.png",
     "static/media/latinco-4.png": "/portfolio/static/media/latinco-4.57c2761647e6916a2225.png",
@@ -31,15 +31,15 @@
     "static/media/laravel.png": "/portfolio/static/media/laravel.cb95b1a0c9cf51a930df.png",
     "static/media/me.jpg": "/portfolio/static/media/me.5e12cbacb46aa86f2d06.jpg",
     "static/media/php.png": "/portfolio/static/media/php.0a564540c19c7189202e.png",
-    "static/media/bootstrap.svg": "/portfolio/static/media/bootstrap.b91717f3b8ef81a7bf2e8b03a9579108.svg",
+    "static/media/bootstrap.svg": "/portfolio/static/media/bootstrap.d3ec2963244c80e6a0563059d90db645.svg",
     "index.html": "/portfolio/index.html",
-    "static/media/html.svg": "/portfolio/static/media/html.7894fe4145e1b8508fb21e83d4f42ef5.svg",
-    "static/media/css.svg": "/portfolio/static/media/css.d9f03c6529e836270f2d1acf6c87f56a.svg",
+    "static/media/html.svg": "/portfolio/static/media/html.7ccb7440da84aeec71a095809fe62d39.svg",
+    "static/media/css.svg": "/portfolio/static/media/css.a29930135a2b0d5fa206d66dfc34b2c4.svg",
     "main.2882eef5.css.map": "/portfolio/static/css/main.2882eef5.css.map",
-    "main.5b3724a3.js.map": "/portfolio/static/js/main.5b3724a3.js.map"
+    "main.bb8e5bb0.js.map": "/portfolio/static/js/main.bb8e5bb0.js.map"
   },
   "entrypoints": [
     "static/css/main.2882eef5.css",
-    "static/js/main.5b3724a3.js"
+    "static/js/main.bb8e5bb0.js"
   ]
 }
