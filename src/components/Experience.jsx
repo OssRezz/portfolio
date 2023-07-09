@@ -13,9 +13,49 @@ export function Experience() {
       <Col>
         <Card className="shadow-sm bg-white border-0">
           <Card.Body>
+          <Row className="d-flex align-items-center">
+              <Col className="col-10 col-sm-5 d-flex  align-items-center text-end d-none d-lg-block">
+                <small className="text-secondary">February 2023 - Present</small>
+              </Col>
+
+              <Col
+                className="col-2 d-flex  align-items-center justify-content-center"
+                style={{ minHeight: "7em" }}
+              >
+                <div className="vr d-flex justify-content-center align-items-center">
+                  <i
+                    className="bi bi-circle-fill bi-lg"
+                    style={{ fontSize: "0.5rem", color: "#0D6EFD" }}
+                  ></i>
+                </div>
+              </Col>
+
+              <Col className="col-10 col-sm-5 d-flex  align-items-center">
+                <Row className="text-secondary d-flex  align-items-center justify-content-start">
+                  <Col className="col-12 text-secondary d-flex  align-items-center justify-content-start">
+                    {/* <img
+                      src={cdeImg}
+                      style={{ height: 20 }}
+                      alt="Flores Isabelita"
+                    /> */}
+                    <div className=" text-secondary">Psicol</div>
+                  </Col>
+                  <Col className="col-12 text-secondary">
+                    <div>
+                      <small>
+                        <b>Software Developer</b>
+                      </small>
+                    </div>
+                  </Col>
+                  <Col className="col-12  text-start d-block d-sm-block d-md-block d-lg-none text-secondary">
+                    <small>February 2023 - Present</small>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
             <Row className="d-flex align-items-center">
               <Col className="col-10 col-sm-5 d-flex  align-items-center text-end d-none d-lg-block">
-                <small className="text-secondary">April 2022 - Present</small>
+                <small className="text-secondary">April 2022 - February 2023</small>
               </Col>
 
               <Col
@@ -48,7 +88,7 @@ export function Experience() {
                     </div>
                   </Col>
                   <Col className="col-12  text-start d-block d-sm-block d-md-block d-lg-none text-secondary">
-                    <small>April 2022 - Present</small>
+                    <small>April 2022 - February 2023</small>
                   </Col>
                 </Row>
               </Col>

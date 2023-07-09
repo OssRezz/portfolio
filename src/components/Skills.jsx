@@ -16,6 +16,9 @@ import bootstrapImg from "../assets/img/bootstrap.svg";
 import cssImg from "../assets/img/css.svg";
 import htmlImg from "../assets/img/html.svg";
 import gitImg from "../assets/img/git.png";
+import vueImg from "../assets/img/vue.png";
+import scrumImg from "../assets/img/scrum.png";
+import linuxImg from "../assets/img/linux.png";
 
 export function Skills() {
   return (
@@ -82,6 +85,19 @@ export function Skills() {
           </Card.Body>
           <Card.Footer className="bg-white text-center border-0  text-secondary">
             <div style={{ whiteSpace: "nowrap" }}>React Native</div>
+          </Card.Footer>
+        </Card>
+      </Col>
+      <Col className="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center mb-5">
+        <Card
+          style={{ width: "10em" }}
+          className="tecnologies shadow-sm  border-0"
+        >
+          <Card.Body className="d-flex justify-content-center align-items-center pb-0">
+            <img src={vueImg} style={{ height: 70 }} alt="..." />
+          </Card.Body>
+          <Card.Footer className="bg-white text-center border-0  text-secondary">
+            <div style={{ whiteSpace: "nowrap" }}>Vue.js</div>
           </Card.Footer>
         </Card>
       </Col>
@@ -173,6 +189,32 @@ export function Skills() {
           </Card.Body>
           <Card.Footer className="bg-white text-center border-0  text-secondary">
             Git
+          </Card.Footer>
+        </Card>
+      </Col>
+      <Col className="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center mb-5">
+        <Card
+          style={{ width: "10em" }}
+          className="tecnologies shadow-sm  border-0"
+        >
+          <Card.Body className="d-flex justify-content-center align-items-center pb-0">
+            <img src={linuxImg} style={{ height: 70 }} alt="..." />
+          </Card.Body>
+          <Card.Footer className="bg-white text-center border-0  text-secondary">
+            Linux
+          </Card.Footer>
+        </Card>
+      </Col>
+      <Col className="col-6 col-sm-4 col-md-3 col-lg-2 d-flex justify-content-center mb-5">
+        <Card
+          style={{ width: "10em" }}
+          className="tecnologies shadow-sm  border-0"
+        >
+          <Card.Body className="d-flex justify-content-center align-items-center pb-0">
+            <img src={scrumImg} style={{ height: 70 }} alt="..." />
+          </Card.Body>
+          <Card.Footer className="bg-white text-center border-0  text-secondary">
+            Scrum / Agile
           </Card.Footer>
         </Card>
       </Col>
