@@ -11,18 +11,83 @@ export function Education() {
           <Card.Body>
             <Row className="d-flex align-items-center">
               <Col className="col-10 col-sm-5 d-flex  align-items-center text-end d-none d-lg-block">
+                <small className="text-secondary">August 2023 - Present</small>
+              </Col>
+
+              <Col className="col-2 d-flex  align-items-center justify-content-center" style={{ minHeight: "6em" }}>
+                <div className="vr d-flex justify-content-center align-items-center">
+                  <i className="bi bi-circle-fill bi-lg" style={{ fontSize: "0.5rem", color: "#0D6EFD" }}></i>
+                </div>
+              </Col>
+
+              <Col className="col-10 col-sm-5 d-flex  align-items-center">
+                <Row className="text-secondary d-flex  align-items-center justify-content-start">
+                  <Col className="col-12 text-secondary d-flex  align-items-center justify-content-start">
+                    <div className="text-secondary">
+                      <b>Ingeniería de Software</b>
+                    </div>
+                  </Col>
+                  <Col className="col-12 text-secondary">
+                    <div>
+                      <small>
+                        <a
+                          href="https://www.poli.edu.co/content/estudiantes"
+                          className="btn-link"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Politécnico Grancolombiano
+                        </a>
+                      </small>
+                    </div>
+                  </Col>
+                  <Col className="col-12  text-start d-block d-sm-block d-md-block d-lg-none text-secondary">
+                    <small>August 2023 - Present</small>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+            <Row className="d-flex align-items-center">
+              <Col className="col-10 col-sm-5 d-flex  align-items-center text-end d-none d-lg-block">
+                <small className="text-secondary">July 2023</small>
+              </Col>
+
+              <Col className="col-2 d-flex  align-items-center justify-content-center" style={{ minHeight: "6em" }}>
+                <div className="vr d-flex justify-content-center align-items-center">
+                  <i className="bi bi-circle-fill bi-lg" style={{ fontSize: "0.5rem", color: "#0D6EFD" }}></i>
+                </div>
+              </Col>
+
+              <Col className="col-10 col-sm-5 d-flex  align-items-center">
+                <Row className="text-secondary d-flex  align-items-center justify-content-start">
+                  <Col className="col-12 text-secondary d-flex  align-items-center justify-content-start">
+                    <div className="text-secondary">
+                      <b>Curso Desarrollo de Software Seguro</b>
+                    </div>
+                  </Col>
+                  <Col className="col-12 text-secondary">
+                    <div>
+                      <small>
+                        <a href="https://eud.academy/es/#" className="btn-link" target="_blank" rel="noreferrer">
+                          EUD Academy (Fundación de Egresados de la Universidad Distrital)
+                        </a>
+                      </small>
+                    </div>
+                  </Col>
+                  <Col className="col-12  text-start d-block d-sm-block d-md-block d-lg-none text-secondary">
+                    <small>July 20223</small>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+            <Row className="d-flex align-items-center">
+              <Col className="col-10 col-sm-5 d-flex  align-items-center text-end d-none d-lg-block">
                 <small className="text-secondary">June 2022</small>
               </Col>
 
-              <Col
-                className="col-2 d-flex  align-items-center justify-content-center"
-                style={{ minHeight: "6em" }}
-              >
+              <Col className="col-2 d-flex  align-items-center justify-content-center" style={{ minHeight: "6em" }}>
                 <div className="vr d-flex justify-content-center align-items-center">
-                  <i
-                    className="bi bi-circle-fill bi-lg"
-                    style={{ fontSize: "0.5rem", color: "#0D6EFD" }}
-                  ></i>
+                  <i className="bi bi-circle-fill bi-lg" style={{ fontSize: "0.5rem", color: "#0D6EFD" }}></i>
                 </div>
               </Col>
 
@@ -36,12 +101,7 @@ export function Education() {
                   <Col className="col-12 text-secondary">
                     <div>
                       <small>
-                        <a
-                          href="https://clasedeexcel.com/"
-                          className="btn-link"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
+                        <a href="https://clasedeexcel.com/" className="btn-link" target="_blank" rel="noreferrer">
                           Clases de excel
                         </a>
                       </small>
@@ -58,15 +118,9 @@ export function Education() {
                 <small className="text-secondary">November 2020</small>
               </Col>
 
-              <Col
-                className="col-2 d-flex  align-items-center justify-content-center"
-                style={{ minHeight: "6em" }}
-              >
+              <Col className="col-2 d-flex  align-items-center justify-content-center" style={{ minHeight: "6em" }}>
                 <div className="vr d-flex justify-content-center align-items-center">
-                  <i
-                    className="bi bi-circle-fill bi-lg"
-                    style={{ fontSize: "0.5rem", color: "#0D6EFD" }}
-                  ></i>
+                  <i className="bi bi-circle-fill bi-lg" style={{ fontSize: "0.5rem", color: "#0D6EFD" }}></i>
                 </div>
               </Col>
 
@@ -102,15 +156,9 @@ export function Education() {
                 <small className="text-secondary">September 2020</small>
               </Col>
 
-              <Col
-                className="col-2 d-flex  align-items-center justify-content-center"
-                style={{ minHeight: "6em" }}
-              >
+              <Col className="col-2 d-flex  align-items-center justify-content-center" style={{ minHeight: "6em" }}>
                 <div className="vr d-flex justify-content-center align-items-center">
-                  <i
-                    className="bi bi-circle-fill bi-lg"
-                    style={{ fontSize: "0.5rem", color: "#0D6EFD" }}
-                  ></i>
+                  <i className="bi bi-circle-fill bi-lg" style={{ fontSize: "0.5rem", color: "#0D6EFD" }}></i>
                 </div>
               </Col>
 
@@ -122,12 +170,7 @@ export function Education() {
                     </div>
                   </Col>
                   <Col className="col-12 text-secondary">
-                    <a
-                      href="https://www.linkedin.com/learning/"
-                      className="btn-link"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a href="https://www.linkedin.com/learning/" className="btn-link" target="_blank" rel="noreferrer">
                       Linkedin
                     </a>
                   </Col>
@@ -139,20 +182,12 @@ export function Education() {
             </Row>
             <Row className="d-flex align-items-center">
               <Col className="col-10 col-sm-5 d-flex  align-items-center text-end d-none d-lg-block">
-                <small className="text-secondary">
-                  October 2019 - October 2021
-                </small>
+                <small className="text-secondary">October 2019 - October 2021</small>
               </Col>
 
-              <Col
-                className="col-2 d-flex  align-items-center justify-content-center"
-                style={{ minHeight: "8em" }}
-              >
+              <Col className="col-2 d-flex  align-items-center justify-content-center" style={{ minHeight: "8em" }}>
                 <div className="vr d-flex justify-content-center align-items-center">
-                  <i
-                    className="bi bi-circle-fill bi-lg"
-                    style={{ fontSize: "0.5rem", color: "#0D6EFD" }}
-                  ></i>
+                  <i className="bi bi-circle-fill bi-lg" style={{ fontSize: "0.5rem", color: "#0D6EFD" }}></i>
                 </div>
               </Col>
 

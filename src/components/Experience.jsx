@@ -43,7 +43,7 @@ export function Experience() {
                   <Col className="col-12 text-secondary">
                     <div>
                       <small>
-                        <b>Software Developer</b>
+                        <b>Fullstack Developer</b>
                       </small>
                     </div>
                   </Col>
