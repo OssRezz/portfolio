@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.2882eef5.css",
-    "main.js": "/portfolio/static/js/main.1508e5cb.js",
-    "static/media/curriculumEs.pdf": "/portfolio/static/media/curriculumEs.4c8bcce862da33ce5e4a.pdf",
+    "main.js": "/portfolio/static/js/main.b2e2c67a.js",
     "static/media/cycling-1.png": "/portfolio/static/media/cycling-1.f3436399b2a5dac97dc6.png",
     "static/media/cycling-2.png": "/portfolio/static/media/cycling-2.f45a74571f5a7a73cb01.png",
     "static/media/cde.png": "/portfolio/static/media/cde.24e5469cf00140361cbb.png",
+    "static/media/curriculumEs.pdf": "/portfolio/static/media/curriculumEs.23bb7fe5f0191ecc3f70.pdf",
     "static/media/galaxia.png": "/portfolio/static/media/galaxia.b1a78d447f40df5cc32e.png",
     "static/media/latinco-5.png": "/portfolio/static/media/latinco-5.e77dcbcb2903efedb6b7.png",
     "static/media/analisis-5.png": "/portfolio/static/media/analisis-5.1162f2dc2777b2366ccc.png",
@@ -19,12 +19,14 @@
     "static/media/cycling-5.png": "/portfolio/static/media/cycling-5.2794f7d05cc3112cc9ba.png",
     "static/media/acceso-2.png": "/portfolio/static/media/acceso-2.7a396ec267632c5bae03.png",
     "static/media/analisis-1.png": "/portfolio/static/media/analisis-1.3f769178521d1bfd2290.png",
+    "static/media/scrum.png": "/portfolio/static/media/scrum.7ce4da84448e6abc5742.png",
     "static/media/latinco-2.png": "/portfolio/static/media/latinco-2.5928a17861a805c7e4c7.png",
     "static/media/analisis-4.png": "/portfolio/static/media/analisis-4.38431dccde6fa60c86d4.png",
     "static/media/acceso-1.png": "/portfolio/static/media/acceso-1.c0b665bc723a6e463b7e.png",
     "static/media/isabelita.jpg": "/portfolio/static/media/isabelita.4ca68f28d2a6af029f0d.jpg",
     "static/media/cycling-3.png": "/portfolio/static/media/cycling-3.68976cd0543a82cea494.png",
     "static/media/excel.png": "/portfolio/static/media/excel.ecf5632c2c8ab8634797.png",
+    "static/media/linux.png": "/portfolio/static/media/linux.3fe027787a4a6779ba8b.png",
     "static/media/cycling-4.png": "/portfolio/static/media/cycling-4.b3f1fecc6cee0a46a570.png",
     "static/media/acceso-3.png": "/portfolio/static/media/acceso-3.ac7b6b6e58f3ad36e988.png",
     "static/media/latinco-1.png": "/portfolio/static/media/latinco-1.578c2e6ca5eabe3a0130.png",
@@ -36,10 +38,10 @@
     "static/media/html.svg": "/portfolio/static/media/html.7ccb7440da84aeec71a095809fe62d39.svg",
     "static/media/css.svg": "/portfolio/static/media/css.a29930135a2b0d5fa206d66dfc34b2c4.svg",
     "main.2882eef5.css.map": "/portfolio/static/css/main.2882eef5.css.map",
-    "main.1508e5cb.js.map": "/portfolio/static/js/main.1508e5cb.js.map"
+    "main.b2e2c67a.js.map": "/portfolio/static/js/main.b2e2c67a.js.map"
   },
   "entrypoints": [
     "static/css/main.2882eef5.css",
-    "static/js/main.1508e5cb.js"
+    "static/js/main.b2e2c67a.js"
   ]
 }
