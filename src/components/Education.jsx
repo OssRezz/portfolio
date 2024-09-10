@@ -11,6 +11,84 @@ export function Education() {
           <Card.Body>
             <Row className="d-flex align-items-center">
               <Col className="col-10 col-sm-5 d-flex  align-items-center text-end d-none d-lg-block">
+                <small className="text-secondary">August 2024</small>
+              </Col>
+
+              <Col className="col-2 d-flex  align-items-center justify-content-center" style={{ minHeight: "6em" }}>
+                <div className="vr d-flex justify-content-center align-items-center">
+                  <i className="bi bi-circle-fill bi-lg" style={{ fontSize: "0.5rem", color: "#0D6EFD" }}></i>
+                </div>
+              </Col>
+
+              <Col className="col-10 col-sm-5 d-flex  align-items-center">
+                <Row className="text-secondary d-flex  align-items-center justify-content-start">
+                  <Col className="col-12 text-secondary d-flex  align-items-center justify-content-start">
+                    <div className="text-secondary">
+                      <b>Curso de Django</b>
+                    </div>
+                  </Col>
+                  <Col className="col-12 text-secondary">
+                    <div>
+                      <small>
+                        <a
+                          href="https://platzi.com/cursos/django/"
+                          className="btn-link"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Platzi
+                        </a>
+                      </small>
+                    </div>
+                  </Col>
+                  <Col className="col-12  text-start d-block d-sm-block d-md-block d-lg-none text-secondary">
+                    <small>August 2024</small>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+
+            <Row className="d-flex align-items-center">
+              <Col className="col-10 col-sm-5 d-flex  align-items-center text-end d-none d-lg-block">
+                <small className="text-secondary">August 2024</small>
+              </Col>
+
+              <Col className="col-2 d-flex  align-items-center justify-content-center" style={{ minHeight: "6em" }}>
+                <div className="vr d-flex justify-content-center align-items-center">
+                  <i className="bi bi-circle-fill bi-lg" style={{ fontSize: "0.5rem", color: "#0D6EFD" }}></i>
+                </div>
+              </Col>
+
+              <Col className="col-10 col-sm-5 d-flex  align-items-center">
+                <Row className="text-secondary d-flex  align-items-center justify-content-start">
+                  <Col className="col-12 text-secondary d-flex  align-items-center justify-content-start">
+                    <div className="text-secondary">
+                      <b>Curso de Python</b>
+                    </div>
+                  </Col>
+                  <Col className="col-12 text-secondary">
+                    <div>
+                      <small>
+                        <a
+                          href="https://platzi.com/cursos/python"
+                          className="btn-link"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Platzi
+                        </a>
+                      </small>
+                    </div>
+                  </Col>
+                  <Col className="col-12  text-start d-block d-sm-block d-md-block d-lg-none text-secondary">
+                    <small>August 2024</small>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+
+            <Row className="d-flex align-items-center">
+              <Col className="col-10 col-sm-5 d-flex  align-items-center text-end d-none d-lg-block">
                 <small className="text-secondary">August 2023 - Present</small>
               </Col>
 

@@ -18,7 +18,12 @@ export function About() {
           <Card.Body className="p-4">
             <Row>
               <Col className="col-12 text-center">
-                <img src={foto} className="img-thumbnail rounded-circle border-secondary" style={{ height: 200 }} alt="..." />
+                <img
+                  src={foto}
+                  className="img-thumbnail rounded-circle border-secondary"
+                  style={{ height: 200 }}
+                  alt="..."
+                />
               </Col>
               <Col className="col-12 text-center mb-4">
                 <div className="text-secondary display-6">
@@ -26,26 +31,31 @@ export function About() {
                 </div>
               </Col>
               <Col className="col-12 text-start  mb-3 text-secondary">
-                <i className="bi bi-mortarboard text-primary"></i> Web developer FullStack
+                <i className="bi bi-mortarboard text-primary"></i> Head of Development | Web developer FullStack
               </Col>
               <Col className="col-12 text-start mb-3 text-secondary">
-                <i className="bi bi-geo-alt text-primary"></i> Rionegro, Colombia
+                <i className="bi bi-geo-alt text-primary"></i> Bello, Colombia
               </Col>
               <Col className="col-12 text-start  text-secondary">
                 <i className="bi bi-at text-primary"></i> OssRezz.13@gmail.com
               </Col>
               <Col className="col-12 text-start  my-4 text-secondary">
-                <small>
-                  <b>I like to develop systems of information, create solutions, and face problems that help me be a better developer.</b>
-                </small>
-                <br></br>
-                <small>
-                  {" "}
-                  <b>
-                    Experience developing custom web applications and macros in Excel. I enjoy working on the backend, but I've also been
-                    developing from requirements to production.
-                  </b>
-                </small>
+                <Row>
+                  <Col className="col-12 text-start  mb-2 text-secondary">
+                    I like to develop systems of information, create solutions, and face problems that help me be a
+                    <b className="mx-1">better developer</b>.
+                  </Col>
+                  <Col className="col-12 text-start  mb-2 text-secondary">
+                    Experience <b>leading teams</b> an developing custom web applications and macros in Excel.
+                  </Col>
+                  <Col className="col-12 text-start  mb-2 text-secondary">
+                    Enjoy working on the <b>backend</b>, but I've also been developing from{" "}
+                    <b>requirements to production</b>.
+                  </Col>
+                  <Col className="col-12 text-start  mb-2 text-secondary">
+                    Always looking for new challenges and <b>learning new technologies</b>.
+                  </Col>
+                </Row>
               </Col>
               <Col className="col-12 text-start  mb-4">
                 <Button variant="primary" className="mx-1 btn-sm" href={curriculum} download="curriculumES">
