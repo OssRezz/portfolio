@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.2882eef5.css",
-    "main.js": "/portfolio/static/js/main.b2e2c67a.js",
+    "main.css": "/portfolio/static/css/main.d2ed2335.css",
+    "main.js": "/portfolio/static/js/main.25b3b820.js",
     "static/media/cycling-1.png": "/portfolio/static/media/cycling-1.f3436399b2a5dac97dc6.png",
     "static/media/cycling-2.png": "/portfolio/static/media/cycling-2.f45a74571f5a7a73cb01.png",
     "static/media/cde.png": "/portfolio/static/media/cde.24e5469cf00140361cbb.png",
     "static/media/curriculumEs.pdf": "/portfolio/static/media/curriculumEs.23bb7fe5f0191ecc3f70.pdf",
     "static/media/galaxia.png": "/portfolio/static/media/galaxia.b1a78d447f40df5cc32e.png",
     "static/media/latinco-5.png": "/portfolio/static/media/latinco-5.e77dcbcb2903efedb6b7.png",
+    "static/media/bootstrap-icons.woff?": "/portfolio/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
     "static/media/analisis-5.png": "/portfolio/static/media/analisis-5.1162f2dc2777b2366ccc.png",
     "static/media/latinco-4.png": "/portfolio/static/media/latinco-4.57c2761647e6916a2225.png",
-    "static/media/bootstrap-icons.woff?": "/portfolio/static/media/bootstrap-icons.e559bf06bc84fd9525e6.woff",
+    "static/media/bootstrap-icons.woff2?": "/portfolio/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
     "static/media/analisis-3.png": "/portfolio/static/media/analisis-3.21d65127b9643c9bc3cf.png",
     "static/media/acceso-4.png": "/portfolio/static/media/acceso-4.264759c571cd0073af06.png",
-    "static/media/bootstrap-icons.woff2?": "/portfolio/static/media/bootstrap-icons.ea98e12d2d58747f9fc5.woff2",
     "static/media/latinco-3.png": "/portfolio/static/media/latinco-3.b54fd486dc51f3790be1.png",
     "static/media/analisis-2.png": "/portfolio/static/media/analisis-2.b99c64da8da3aad8a6f4.png",
     "static/media/cycling-5.png": "/portfolio/static/media/cycling-5.2794f7d05cc3112cc9ba.png",
@@ -25,6 +25,8 @@
     "static/media/acceso-1.png": "/portfolio/static/media/acceso-1.c0b665bc723a6e463b7e.png",
     "static/media/isabelita.jpg": "/portfolio/static/media/isabelita.4ca68f28d2a6af029f0d.jpg",
     "static/media/cycling-3.png": "/portfolio/static/media/cycling-3.68976cd0543a82cea494.png",
+    "static/media/docker.png": "/portfolio/static/media/docker.0f1d943e8a1505d609e5.png",
+    "static/media/serviunix.png": "/portfolio/static/media/serviunix.bab4e23abbd5a07510c4.png",
     "static/media/excel.png": "/portfolio/static/media/excel.ecf5632c2c8ab8634797.png",
     "static/media/linux.png": "/portfolio/static/media/linux.3fe027787a4a6779ba8b.png",
     "static/media/cycling-4.png": "/portfolio/static/media/cycling-4.b3f1fecc6cee0a46a570.png",
@@ -32,16 +34,18 @@
     "static/media/latinco-1.png": "/portfolio/static/media/latinco-1.578c2e6ca5eabe3a0130.png",
     "static/media/laravel.png": "/portfolio/static/media/laravel.cb95b1a0c9cf51a930df.png",
     "static/media/me.jpg": "/portfolio/static/media/me.5e12cbacb46aa86f2d06.jpg",
+    "static/media/django.png": "/portfolio/static/media/django.4c677b78d12c96ea7add.png",
+    "static/media/python.png": "/portfolio/static/media/python.f7f12e1bf59e577656a2.png",
     "static/media/php.png": "/portfolio/static/media/php.0a564540c19c7189202e.png",
     "static/media/bootstrap.svg": "/portfolio/static/media/bootstrap.d3ec2963244c80e6a0563059d90db645.svg",
     "index.html": "/portfolio/index.html",
     "static/media/html.svg": "/portfolio/static/media/html.7ccb7440da84aeec71a095809fe62d39.svg",
     "static/media/css.svg": "/portfolio/static/media/css.a29930135a2b0d5fa206d66dfc34b2c4.svg",
-    "main.2882eef5.css.map": "/portfolio/static/css/main.2882eef5.css.map",
-    "main.b2e2c67a.js.map": "/portfolio/static/js/main.b2e2c67a.js.map"
+    "main.d2ed2335.css.map": "/portfolio/static/css/main.d2ed2335.css.map",
+    "main.25b3b820.js.map": "/portfolio/static/js/main.25b3b820.js.map"
   },
   "entrypoints": [
-    "static/css/main.2882eef5.css",
-    "static/js/main.b2e2c67a.js"
+    "static/css/main.d2ed2335.css",
+    "static/js/main.25b3b820.js"
   ]
 }
