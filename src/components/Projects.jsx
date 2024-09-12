@@ -6,11 +6,27 @@ import { Cycling } from "./Cycling.jsx";
 import { Latinco } from "./Latinco.jsx";
 import { GalaxiaERP } from "./GalaxiaERP.jsx";
 import { Acceso } from "./Acceso.jsx";
+import { GalaxiTrack } from "./Galaxitrack.jsx";
+import { Whatsapp } from "./WhatsAppApi.jsx";
+import { SXAdmon } from "./Sxadmon.jsx";
+import { Tejiser } from "./Tejiser.jsx";
 
 export function Projects() {
   return (
     <>
       <Col>
+        <Row className="d-flex justify-content-center align-items-center mb-5">
+          <Tejiser />
+        </Row>
+        <Row className="d-flex justify-content-center align-items-center mb-5">
+          <SXAdmon />
+        </Row>
+        <Row className="d-flex justify-content-center align-items-center mb-5">
+          <Whatsapp />
+        </Row>
+        <Row className="d-flex justify-content-center align-items-center mb-5">
+          <GalaxiTrack />
+        </Row>
         <Row className="d-flex justify-content-center align-items-center mb-5">
           <Cycling />
         </Row>

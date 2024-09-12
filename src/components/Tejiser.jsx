@@ -2,15 +2,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
 import { Row, Col, Card, Carousel, Badge } from "react-bootstrap";
-import galaxiaImg from "../assets/img/galaxia.png";
 
-import analisis_1 from "../assets/img/analisis/analisis-1.png";
-import analisis_2 from "../assets/img/analisis/analisis-2.png";
-import analisis_3 from "../assets/img/analisis/analisis-3.png";
-import analisis_4 from "../assets/img/analisis/analisis-4.png";
-import analisis_5 from "../assets/img/analisis/analisis-5.png";
+import tejiser_1 from "../assets/img/tejiser/login.png";
+import tejiser_2 from "../assets/img/tejiser/instruments.png";
+import tejiser_3 from "../assets/img/tejiser/survey_start.png";
+import tejiser_4 from "../assets/img/tejiser/survey.png";
+import tejiser_5 from "../assets/img/tejiser/reports.png";
 
-export function GalaxiaERP() {
+export function Tejiser() {
   return (
     <>
       <Col className="col-12 col-lg-6  my-1 my-md-5">
@@ -18,23 +17,23 @@ export function GalaxiaERP() {
           <Card.Body>
             <Row>
               <Col className="col-12  text-secondary">
-                <h5 className="text-center mb-5 text-dark">Galaxia Seguridad ERP</h5>
+                <h5 className="text-center mb-5 text-dark">TejiSer</h5>
                 <h6 className="text-center mb-1 text-dark">Description</h6>
                 <Col className="mb-3 text-center mt-2">
-                  Galaxia Seguridad Ltda is a security company with different services.{" "}
+                  Application for the faculty of Medicine of the University of Antioquia <b>(Udea)</b>.{" "}
                   <b>
-                    <em>The objective of this project is to integrate every process of the company into an ERP.</em>
+                    <em> Comprehensive information system on mental health</em>.
                   </b>
+                  <br />
+                  The objective of the application is to make surveys of students of different universities in Colombia
+                  about mental health, tobacco and psychoactive substances.{" "}
                 </Col>
                 <h6 className="text-center mb-1 mt-3 text-dark">Technologies</h6>
                 <Col className="mb-1 text-center  mt-2 mb-2">
-                  Application created with the programming language <b className="text-secondary">PHP </b> with the
-                  architectural pattern <b className="text-secondary">MVC.</b> The technologies implemented are{" "}
-                  <b className="text-secondary">HTML</b> and <b className="text-secondary"> Bootstrap 5 </b> for the
-                  styles and layout of the page. <b className="text-secondary"> JavaScript </b> and{" "}
-                  <b className="text-secondary"> Ajax </b>to interact with the users' actions. We use Amazon Web Service{" "}
-                  <b className="text-secondary"> S3 </b> to store images, binary files and{" "}
-                  <b className="text-secondary"> MySQL </b> for the database.
+                  Application created using the <b className="text-secondary">PHP Laravel </b>framework. The
+                  technologies implemented are <b className="text-secondary">HTML, Bootstrap 5 </b>for the styles and
+                  layout, <b className="text-secondary">pure JavaScript</b> and <b className="text-secondary">Ajax</b>{" "}
+                  to interact with the actions of the user. For database <b className="text-secondary">MySQL</b>
                 </Col>
                 <Col className="text-center">
                   <small>
@@ -53,11 +52,6 @@ export function GalaxiaERP() {
                       MySQL
                     </Badge>
                   </small>
-                  <small>
-                    <Badge bg="secondary" className=" mx-1">
-                      API
-                    </Badge>
-                  </small>
                 </Col>
               </Col>
             </Row>
@@ -67,26 +61,25 @@ export function GalaxiaERP() {
       <Col className="col-12 col-lg-6">
         <Carousel className="shadow-sm mb-3">
           <Carousel.Item>
-            <img src={analisis_1} className="d-block w-100" alt="First slide" />
+            <img src={tejiser_1} className="d-block w-100" alt="First slide" />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={analisis_2} className="d-block w-100" alt="First slide" />
+            <img src={tejiser_2} className="d-block w-100" alt="First slide" />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={analisis_3} className="d-block w-100" alt="First slide" />
+            <img src={tejiser_3} className="d-block w-100" alt="First slide" />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={analisis_4} className="d-block w-100" alt="First slide" />
+            <img src={tejiser_4} className="d-block w-100" alt="First slide" />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={analisis_5} className="d-block w-100" alt="First slide" />
+            <img src={tejiser_5} className="d-block w-100" alt="First slide" />
           </Carousel.Item>
         </Carousel>
         <Col className="text-secondary d-flex  align-items-center justify-content-center">
-          <img src={galaxiaImg} style={{ height: 20 }} alt="Flores Isabelita" />
           <div className="mx-2 text-secondary">
             <small>
-              <b>Galaxia Seguridad Ltda</b>
+              <b>Freelance</b>
             </small>
           </div>
         </Col>

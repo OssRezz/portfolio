@@ -23,15 +23,18 @@ export function Cycling() {
                 <Col className="mb-3 text-center mt-2">
                   GymPlus is a company with four headquarters in the city of Medellin, Antioquia.{" "}
                   <b>
-                    <em> The objective of the application is to allow users to reserve a class of spinning(cycling).</em>
+                    <em>
+                      {" "}
+                      The objective of the application is to allow users to reserve a class of spinning(cycling).
+                    </em>
                   </b>
                 </Col>
                 <h6 className="text-center mb-1 mt-3 text-dark">Technologies</h6>
                 <Col className="mb-1 text-center  mt-2 mb-2">
-                  Application created using the <b className="text-secondary">PHP Laravel </b>framework. The technologies implemented are{" "}
-                  <b className="text-secondary">HTML, Boostrap 5 </b>for the styles and layout,{" "}
-                  <b className="text-secondary">pure JavaScript</b> and <b className="text-secondary">Ajax</b> to interact with the actions
-                  of the user. For database <b className="text-secondary">MySQL</b>
+                  Application created using the <b className="text-secondary">PHP Laravel </b>framework. The
+                  technologies implemented are <b className="text-secondary">HTML, Bootstrap 5 </b>for the styles and
+                  layout, <b className="text-secondary">pure JavaScript</b> and <b className="text-secondary">Ajax</b>{" "}
+                  to interact with the actions of the user. For database <b className="text-secondary">MySQL</b>
                 </Col>
                 <Col className="text-center">
                   <small>
