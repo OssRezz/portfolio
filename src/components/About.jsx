@@ -31,10 +31,12 @@ export function About() {
                 </div>
               </Col>
               <Col className="col-12 text-start  mb-3 text-secondary">
-                <i className="bi bi-mortarboard text-primary"></i> Head of Development | Web developer FullStack
+                <i className="bi bi-mortarboard text-primary"></i> Head of
+                Development | Web developer FullStack
               </Col>
               <Col className="col-12 text-start mb-3 text-secondary">
-                <i className="bi bi-geo-alt text-primary"></i> Bello, Colombia
+                <i className="bi bi-geo-alt text-primary"></i> Sabaneta,
+                Colombia
               </Col>
               <Col className="col-12 text-start  text-secondary">
                 <i className="bi bi-at text-primary"></i> OssRezz.13@gmail.com
@@ -42,23 +44,36 @@ export function About() {
               <Col className="col-12 text-start  my-4 text-secondary">
                 <Row>
                   <Col className="col-12 text-start  mb-2 text-secondary">
-                    I like to develop systems of information, create solutions, and face problems that help me be a
-                    <b className="mx-1">better developer</b>.
+                    I am passionate about developing information systems,
+                    creating solutions, and tackling challenges that help me
+                    grow as a developer. I have experience{" "}
+                    <b>leading teams</b> and building{" "}
+                    <b>custom web applications</b>.
                   </Col>
                   <Col className="col-12 text-start  mb-2 text-secondary">
-                    Experience <b>leading teams</b> an developing custom web applications and macros in Excel.
+                    While I enjoy working primarily on the backend, I have been
+                    involved in all stages of development, from gathering
+                    requirements to production deployment. I am always looking
+                    for <b>new challenges</b> and eager to learn technologies that
+                    allow me to improve and bring more <b>value to projects</b>.
                   </Col>
                   <Col className="col-12 text-start  mb-2 text-secondary">
-                    Enjoy working on the <b>backend</b>, but I've also been developing from{" "}
-                    <b>requirements to production</b>.
-                  </Col>
-                  <Col className="col-12 text-start  mb-2 text-secondary">
-                    Always looking for new challenges and <b>learning new technologies</b>.
+                    With a focus on optimizing processes, solving technical
+                    problems, and ensuring a high-quality user experience, I
+                    strive to implement best practices in security, performance,
+                    and data validation. My dedication and commitment drive me
+                    to exceed expectations and deliver sustainable solutions
+                    that <b>make a difference</b>.
                   </Col>
                 </Row>
               </Col>
               <Col className="col-12 text-start  mb-4">
-                <Button variant="primary" className="mx-1 btn-sm" href={curriculum} download="curriculumES">
+                <Button
+                  variant="primary"
+                  className="mx-1 btn-sm"
+                  href={curriculum}
+                  download="curriculumES"
+                >
                   <i className="bi bi-download"></i> Curriculum
                 </Button>
                 {/* <Button variant="primary" className="btn-sm" onClick={() => setModalShow(true)}>
@@ -66,13 +81,29 @@ export function About() {
                 </Button> */}
               </Col>
               <Col className="col-6 text-end ">
-                <a className="refereces" href="https://github.com/OssRezz" target="_blank" rel="noreferrer">
-                  <i className="bi bi-github text-primary refereces" style={{ fontSize: "1.7em" }}></i>
+                <a
+                  className="refereces"
+                  href="https://github.com/OssRezz"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i
+                    className="bi bi-github text-primary refereces"
+                    style={{ fontSize: "1.7em" }}
+                  ></i>
                 </a>
               </Col>
               <Col className="col-6 text-start">
-                <a className="refereces" href="https://www.linkedin.com/in/OssRezz/" target="_blank" rel="noreferrer">
-                  <i className="bi bi-linkedin text-primary" style={{ fontSize: "1.7em" }}></i>
+                <a
+                  className="refereces"
+                  href="https://www.linkedin.com/in/OssRezz/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i
+                    className="bi bi-linkedin text-primary"
+                    style={{ fontSize: "1.7em" }}
+                  ></i>
                 </a>
               </Col>
             </Row>

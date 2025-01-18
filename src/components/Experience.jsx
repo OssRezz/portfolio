@@ -49,7 +49,7 @@ export function Experience() {
 
             <Row className="d-flex align-items-center">
               <Col className="col-10 col-sm-5 d-flex  align-items-center text-end d-none d-lg-block">
-                <small className="text-secondary">October 2023 - present</small>
+                <small className="text-secondary">October 2023 - October 2024</small>
               </Col>
 
               <Col className="col-2 d-flex  align-items-center justify-content-center" style={{ minHeight: "7em" }}>
@@ -72,7 +72,7 @@ export function Experience() {
                     </div>
                   </Col>
                   <Col className="col-12  text-start d-block d-sm-block d-md-block d-lg-none text-secondary">
-                    <small>October 2023 - present</small>
+                    <small>October 2023 - October 2024</small>
                   </Col>
                 </Row>
               </Col>
