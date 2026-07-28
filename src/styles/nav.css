@@ -1,0 +1,68 @@
+nav {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 70;
+  width: calc(100% - 40px);
+  max-width: 1020px;
+}
+.nav-in {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 11px 12px 11px 22px;
+  border-radius: 100px;
+  background: rgba(16, 20, 34, 0.55);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: 0 8px 40px -14px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.mark { font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 9px; white-space: nowrap; }
+.orb {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--a2), var(--a1));
+  box-shadow: 0 0 12px rgba(67, 229, 196, 0.7);
+}
+.nav-links { display: flex; gap: 4px; font-size: 13.5px; }
+.nav-links a {
+  color: var(--fg-2); text-decoration: none; padding: 7px 13px;
+  border-radius: 100px; transition: 0.35s var(--e);
+}
+.nav-links a:hover { color: var(--fg); background: rgba(255, 255, 255, 0.07); }
+
+.nav-right { display: flex; align-items: center; gap: 8px; }
+.lang {
+  display: flex; background: rgba(255, 255, 255, 0.05);
+  border-radius: 100px; padding: 3px; font-family: var(--mono); font-size: 10.5px;
+}
+.lang button {
+  background: none; border: 0; color: var(--fg-3);
+  padding: 5px 11px; border-radius: 100px; cursor: pointer; font: inherit; transition: 0.3s;
+}
+.lang button.on { background: rgba(255, 255, 255, 0.12); color: var(--fg); }
+
+.burger {
+  display: none; background: none; border: 0; cursor: pointer;
+  width: 38px; height: 34px; border-radius: 100px; padding: 10px 9px;
+  flex-direction: column; justify-content: center; gap: 5px;
+}
+.burger span { display: block; height: 1.5px; background: var(--fg-2); border-radius: 2px; }
+
+.sheet {
+  margin-top: 10px; padding: 14px;
+  border-radius: 22px;
+  background: rgba(10, 13, 24, 0.96);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(20px);
+  display: flex; flex-direction: column;
+}
+.sheet a {
+  padding: 13px 14px; text-decoration: none; color: var(--fg-2);
+  border-radius: 12px; font-size: 15px;
+}
+.sheet a:hover { background: rgba(255, 255, 255, 0.06); color: var(--fg); }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+}

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>James Osorio Florez — Fullstack Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060810;--fg:#EAECF2;--fg-2:#8E96A8;--fg-3:#525B70;
+  --line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.15);
+  --a1:#6E8BFF;--a2:#43E5C4;--warn:#FFC46B;
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --e:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1200px;margin:0 auto;padding:0 36px;position:relative;z-index:3}
+@media(max-width:640px){.wrap{padding:0 20px}}
+::selection{background:var(--a1);color:#060810}
+
+/* ---------- hero backdrop: la misma topología, en abstracto ---------- */
+#heroNet{position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;align-items:center;justify-content:center;opacity:.16;transition:opacity 1.2s var(--e)}
+#heroNet.faded{opacity:.05}
+#heroNet svg{width:190%;max-width:none;animation:drift 34s ease-in-out infinite alternate}
+@keyframes drift{0%{transform:translate(-1.2%,-1%) scale(1)}100%{transform:translate(1.2%,1.4%) scale(1.05)}}
+.aur{position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse 70% 50% at 18% 0%,rgba(110,139,255,.17),transparent 60%),
+             radial-gradient(ellipse 60% 45% at 88% 12%,rgba(67,229,196,.10),transparent 62%),
+             radial-gradient(ellipse 90% 60% at 50% 100%,rgba(110,139,255,.06),transparent 65%)}
+.vig{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 95% 75% at 50% 45%,transparent 38%,rgba(6,8,16,.82) 100%)}
+
+/* ---------- graph styles (shared hero + case study) ---------- */
+.gnode rect{fill:rgba(18,23,38,.92);stroke:var(--line-2);stroke-width:1}
+.gnode.own rect{stroke:rgba(67,229,196,.55)}
+.gnode.ext rect{stroke:rgba(255,255,255,.16);stroke-dasharray:4 4}
+.gnode .nlab{fill:var(--fg);font:500 15px var(--sans)}
+.gnode .ntec{fill:var(--fg-3);font:400 10.5px var(--mono)}
+.gedge{fill:none;stroke:rgba(140,165,235,.32);stroke-width:1.2}
+.gpulse{fill:var(--a2)}
+.ghost .nlab,.ghost .ntec,.ghost .stagelab{display:none}
+.ghost .gnode rect{fill:rgba(110,139,255,.05)}
+.stagelab{fill:var(--fg-3);font:500 10px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+#arch svg .gnode{cursor:pointer;transition:opacity .35s}
+#arch svg.dim .gnode:not(.hot){opacity:.28}
+#arch svg.dim .gedge:not(.hot){opacity:.12}
+#arch svg .gnode.hot rect{stroke:var(--a2);stroke-width:1.8;filter:drop-shadow(0 0 14px rgba(67,229,196,.4))}
+#arch svg .gedge.hot{stroke:var(--a2);stroke-width:2}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:70;width:calc(100% - 40px);max-width:1000px}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:11px 12px 11px 22px;border-radius:100px;
+  background:rgba(16,20,34,.55);border:1px solid var(--line);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
+  box-shadow:0 8px 40px -14px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.06)}
+.mark{font-weight:600;font-size:14px;display:flex;align-items:center;gap:9px}
+.orb{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--a2),var(--a1));box-shadow:0 0 12px rgba(67,229,196,.7)}
+.nav-links{display:flex;gap:6px;font-size:13.5px}
+.nav-links a{color:var(--fg-2);text-decoration:none;padding:7px 14px;border-radius:100px;transition:.35s var(--e)}
+.nav-links a:hover{color:var(--fg);background:rgba(255,255,255,.07)}
+.lang{display:flex;background:rgba(255,255,255,.05);border-radius:100px;padding:3px;font-family:var(--mono);font-size:10.5px}
+.lang button{background:none;border:0;color:var(--fg-3);padding:5px 11px;border-radius:100px;cursor:pointer;font:inherit;transition:.3s}
+.lang button.on{background:rgba(255,255,255,.12);color:var(--fg)}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+header{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:140px 0 90px;position:relative}
+.badge{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--fg-2);padding:7px 15px;border-radius:100px;border:1px solid var(--line);background:rgba(255,255,255,.03);backdrop-filter:blur(10px)}
+.badge .p{width:6px;height:6px;border-radius:50%;background:var(--a2);animation:bp 2.2s infinite}
+@keyframes bp{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(67,229,196,.5)}60%{opacity:.6;box-shadow:0 0 0 8px rgba(67,229,196,0)}}
+h1{font-size:clamp(40px,7.6vw,98px);line-height:1.0;font-weight:500;letter-spacing:-.045em;margin-top:32px}
+h1 .w{display:inline-block;opacity:0;transform:translateY(30px);animation:wIn .95s var(--e) forwards}
+h1 .grad{background:linear-gradient(105deg,var(--a2),var(--a1) 60%,#B79BFF);-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes wIn{to{opacity:1;transform:none}}
+.sub{margin-top:30px;max-width:580px;font-size:clamp(16px,2vw,19px);color:var(--fg-2);line-height:1.68;opacity:0;animation:fIn 1s var(--e) .7s forwards}
+.sub b{color:var(--fg);font-weight:500}
+@keyframes fIn{to{opacity:1}}
+.hero-cta{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap;opacity:0;animation:fIn 1s var(--e) .85s forwards}
+.mbtn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:14px 26px;border-radius:100px;font-size:14px;font-weight:500;
+  transition:transform .25s var(--e),box-shadow .35s,background .35s;will-change:transform}
+.mbtn.pri{background:linear-gradient(120deg,var(--a2),var(--a1));color:#060810;font-weight:600;box-shadow:0 8px 30px -10px rgba(110,139,255,.6)}
+.mbtn.sec{border:1px solid var(--line-2);color:var(--fg-2);background:rgba(255,255,255,.03);backdrop-filter:blur(10px)}
+.mbtn.sec:hover{color:var(--fg);background:rgba(255,255,255,.08)}
+.hint{position:absolute;bottom:34px;left:36px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3);max-width:340px;line-height:1.7}
+@media(max-width:640px){.hint{display:none}}
+
+/* ---------- sections ---------- */
+section{padding:120px 0;position:relative}
+.sec-k{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--a2);margin-bottom:14px}
+.sec-t{font-size:clamp(26px,4.2vw,46px);font-weight:500;letter-spacing:-.04em;line-height:1.1}
+.sec-d{margin-top:14px;color:var(--fg-2);max-width:560px;font-size:16px}
+.sec-head{margin-bottom:54px}
+
+/* ---------- case study ---------- */
+.case{border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,rgba(21,26,43,.96),rgba(9,12,22,.99));
+  backdrop-filter:blur(18px);overflow:hidden;box-shadow:0 30px 80px -50px #000,inset 0 1px 0 rgba(255,255,255,.07)}
+.case-hd{padding:38px 40px 30px;border-bottom:1px solid var(--line)}
+.case-eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);flex-wrap:wrap}
+.pill{padding:3px 9px;border-radius:100px;border:1px solid rgba(67,229,196,.35);color:var(--a2)}
+.case-name{font-size:clamp(30px,4.4vw,48px);font-weight:500;letter-spacing:-.04em;margin-top:14px;line-height:1.05}
+.case-claim{margin-top:16px;font-size:clamp(16px,2.1vw,20px);color:var(--fg-2);max-width:720px;line-height:1.6}
+.case-claim b{color:var(--fg);font-weight:500}
+.case-body{padding:34px 40px 40px}
+@media(max-width:760px){.case-hd,.case-body{padding-left:22px;padding-right:22px}}
+
+.probl{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:38px}
+.probl > div{padding:22px 24px}
+.probl > div:first-child{border-right:1px solid var(--line);background:rgba(255,255,255,.015)}
+.probl h5{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3);font-weight:400;margin-bottom:10px}
+.probl p{font-size:14.5px;color:var(--fg-2);line-height:1.66}
+.probl b{color:var(--fg);font-weight:500}
+@media(max-width:760px){.probl{grid-template-columns:1fr}.probl>div:first-child{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* diagram frame */
+.dframe{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.014);padding:22px 20px 12px;overflow-x:auto}
+.dtitle{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px;padding:0 4px}
+.dtitle span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3)}
+#arch svg{min-width:900px;width:100%;height:auto;display:block}
+.legend{display:flex;gap:22px;flex-wrap:wrap;padding:14px 4px 4px;font-family:var(--mono);font-size:10.5px;color:var(--fg-3)}
+.legend i{display:inline-block;width:22px;height:10px;border-radius:3px;vertical-align:-1px;margin-right:7px;border:1px solid}
+.legend .own{border-color:rgba(67,229,196,.55);background:rgba(67,229,196,.08)}
+.legend .ext{border-color:rgba(255,255,255,.16);border-style:dashed}
+#dtip{margin-top:12px;min-height:34px;padding:9px 14px;border-radius:9px;background:rgba(255,255,255,.035);border:1px solid var(--line);
+  font-size:13px;color:var(--fg-2);transition:opacity .3s}
+#dtip b{color:var(--fg);font-weight:500}
+#dtip code{font-family:var(--mono);font-size:11.5px;color:var(--a2)}
+
+.mets{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
+.met{padding:20px 22px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.02)}
+.met .v{font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-.04em;line-height:1}
+.met .v i{font-style:normal;color:var(--a2)}
+.met .k{margin-top:9px;font-size:12.5px;color:var(--fg-3);line-height:1.45}
+.met.todo{border-color:rgba(255,196,107,.4);background:rgba(255,196,107,.05)}
+.met.todo .v i{color:var(--warn)}
+.met.todo .k{color:var(--warn)}
+@media(max-width:760px){.mets{grid-template-columns:1fr}}
+.tgs{display:flex;flex-wrap:wrap;gap:7px;margin-top:30px}
+.tg{font-family:var(--mono);font-size:10.5px;padding:5px 11px;border-radius:100px;background:rgba(255,255,255,.055);border:1px solid var(--line);color:var(--fg-2)}
+
+/* ---------- product cards ---------- */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+@media(max-width:860px){.pgrid{grid-template-columns:1fr}}
+.pcard{border:1px solid var(--line);border-radius:18px;padding:28px 28px 26px;background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.012));
+  transition:.45s var(--e);display:flex;flex-direction:column}
+.pcard:hover{transform:translateY(-4px);border-color:rgba(110,139,255,.4)}
+.pcard .top{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.pcard h3{font-size:24px;font-weight:500;letter-spacing:-.03em}
+.pcard .co{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--a2);margin-top:6px}
+.pcard .yr{font-family:var(--mono);font-size:10.5px;color:var(--fg-3);white-space:nowrap}
+.pcard p{margin-top:14px;color:var(--fg-2);font-size:14.5px;line-height:1.66;flex:1}
+.pcard p b{color:var(--fg);font-weight:500}
+.pcard .tgs{margin-top:18px}
+.gap{border-style:dashed;border-color:rgba(255,196,107,.35);background:rgba(255,196,107,.03)}
+.gap p{color:var(--warn)}
+
+/* ---------- platform band ---------- */
+.plat{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:0}
+.prow{display:grid;grid-template-columns:230px 1fr 150px;gap:28px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:.4s var(--e)}
+.prow:last-child{border-bottom:0}
+.prow:hover{padding-left:14px}
+.prow h4{font-size:18px;font-weight:500;letter-spacing:-.02em}
+.prow .d{color:var(--fg-2);font-size:14.5px;line-height:1.62}
+.prow .d b{color:var(--fg);font-weight:500}
+.prow .s{font-family:var(--mono);font-size:10.5px;color:var(--fg-3);text-align:right;line-height:1.7}
+@media(max-width:820px){.prow{grid-template-columns:1fr;gap:8px}.prow .s{text-align:left}}
+
+/* ---------- about / footer ---------- */
+.quote{font-size:clamp(22px,3.2vw,34px);font-weight:500;letter-spacing:-.035em;line-height:1.32}
+.quote .grad{background:linear-gradient(105deg,var(--a2),var(--a1));-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:48px}
+.about-g p{color:var(--fg-2);font-size:16.5px;line-height:1.78}
+.about-g b{color:var(--fg);font-weight:500}
+@media(max-width:820px){.about-g{grid-template-columns:1fr;gap:26px}}
+footer{padding:110px 0 46px;border-top:1px solid var(--line);position:relative;z-index:3;margin-top:40px}
+.f-h{font-size:clamp(30px,5.6vw,68px);font-weight:500;letter-spacing:-.045em;line-height:1.05}
+.f-mail{display:inline-block;margin-top:26px;font-size:clamp(17px,3vw,29px);color:var(--fg);text-decoration:none;font-weight:500;position:relative}
+.f-mail::after{content:'';position:absolute;left:0;bottom:-4px;width:100%;height:1px;background:linear-gradient(90deg,var(--a2),var(--a1));transform:scaleX(0);transform-origin:right;transition:transform .55s var(--e)}
+.f-mail:hover::after{transform:scaleX(1);transform-origin:left}
+.f-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;margin-top:76px;font-family:var(--mono);font-size:11px;color:var(--fg-3)}
+.f-row a{color:var(--fg-3);text-decoration:none;margin-left:24px;transition:color .3s}
+.f-row a:hover{color:var(--a2)}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--e),transform .9s var(--e)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+html:not([data-lang="en"]) [data-en]{display:none!important}
+html[data-lang="en"] [data-es]{display:none!important}
+</style>
+</head>
+<body>
+<div id="heroNet"></div><div class="aur"></div><div class="vig"></div>
+
+<nav><div class="nav-in">
+  <div class="mark"><span class="orb"></span>James Osorio</div>
+  <div class="nav-links">
+    <a href="#work"><span data-es>Trabajo</span><span data-en>Work</span></a>
+    <a href="#platform"><span data-es>Plataforma</span><span data-en>Platform</span></a>
+    <a href="#about"><span data-es>Perfil</span><span data-en>About</span></a>
+    <a href="#contact"><span data-es>Contacto</span><span data-en>Contact</span></a>
+  </div>
+  <div class="lang"><button class="on" data-set="es">ES</button><button data-set="en">EN</button></div>
+</div></nav>
+
+<div class="wrap">
+<header>
+  <span class="badge"><span class="p"></span><span data-es>Medellín · Disponible</span><span data-en>Medellín · Available</span></span>
+  <h1 id="h1"></h1>
+  <p class="sub">
+    <span data-es>Construyo producto de punta a punta — del esquema de datos al deploy. Arquitecturas de microservicios, tiempo real y cloud que sostienen <b>millones de registros</b> en producción.</span>
+    <span data-en>I build product end to end — from the data schema to the deploy. Microservice architectures, real time and cloud that hold <b>millions of records</b> in production.</span>
+  </p>
+  <div class="hero-cta">
+    <a class="mbtn pri magnet" href="#work"><span data-es>Ver el trabajo</span><span data-en>See the work</span> →</a>
+    <a class="mbtn sec magnet" href="#contact"><span data-es>Descargar CV</span><span data-en>Download CV</span> ↓</a>
+  </div>
+  <div class="hint">
+    <span data-es>El fondo no es decoración.<br>Es una arquitectura real. Sigue bajando.</span>
+    <span data-en>The background isn't decoration.<br>It's a real architecture. Keep scrolling.</span>
+  </div>
+</header>
+
+<section id="work">
+  <div class="sec-head rv">
+    <div class="sec-k">01 — <span data-es>Caso principal</span><span data-en>Lead case</span></div>
+    <h2 class="sec-t"><span data-es>Edgeclear Insights</span><span data-en>Edgeclear Insights</span></h2>
+    <p class="sec-d"><span data-es>Seis servicios, tres fuentes de datos externas y un pipeline que convierte ejecuciones crudas en estadística que un trader puede leer.</span><span data-en>Six services, three external data sources and a pipeline that turns raw executions into statistics a trader can actually read.</span></p>
+  </div>
+
+  <div class="case rv">
+    <div class="case-hd">
+      <div class="case-eyebrow">
+        <span>ArrowFin</span><span>·</span><span>2025 — <span data-es>Actualidad</span><span data-en>Present</span></span><span class="pill" data-es>Responsable técnico</span><span class="pill" data-en>Technical owner</span>
+      </div>
+      <h3 class="case-name">Edgeclear Insights</h3>
+      <p class="case-claim">
+        <span data-es>Tu plataforma de trading te dice que ejecutaste. No te dice <b>cómo te fue</b>. Insights toma los fills crudos y los convierte en trades, calendarios, curvas de P&amp;L y estadística accionable.</span>
+        <span data-en>Your trading platform tells you that you executed. It doesn't tell you <b>how you did</b>. Insights takes raw fills and turns them into trades, calendars, P&amp;L curves and actionable statistics.</span>
+      </p>
+    </div>
+    <div class="case-body">
+      <div class="probl">
+        <div>
+          <h5><span data-es>El problema real</span><span data-en>The actual problem</span></h5>
+          <p><span data-es>La estadística es la parte fácil. Lo difícil es <b>de dónde sale el dato</b>: cada bróker habla su propio protocolo, entrega histórico y vivo por canales distintos, y nada de eso llega normalizado.</span>
+             <span data-en>The statistics are the easy part. The hard part is <b>where the data comes from</b>: every broker speaks its own protocol, delivers history and live feed through different channels, and none of it arrives normalized.</span></p>
+        </div>
+        <div>
+          <h5><span data-es>La respuesta</span><span data-en>The answer</span></h5>
+          <p><span data-es>Un servicio de ingesta por bróker, un transportador que consolida sus tres bases en una sola, un constructor de dominio que arma los trades, y una capa de sockets que empuja los cambios al front. <b>Cada pieza falla sola.</b></span>
+             <span data-en>One ingestion service per broker, a mover that consolidates their three databases into one, a domain builder that assembles the trades, and a socket layer pushing changes to the front. <b>Each piece fails on its own.</b></span></p>
+        </div>
+      </div>
+
+      <div class="dframe">
+        <div class="dtitle">
+          <span data-es>Arquitectura — flujo de datos</span><span data-en>Architecture — data flow</span>
+          <span data-es>pasa el mouse sobre un servicio</span><span data-en>hover a service</span>
+        </div>
+        <div id="arch"></div>
+        <div class="legend">
+          <span><i class="own"></i><span data-es>Construido por mí</span><span data-en>Built by me</span></span>
+          <span><i class="ext"></i><span data-es>De terceros — lo administro</span><span data-en>Third-party — I operate it</span></span>
+        </div>
+        <div id="dtip"><span data-es>Ocho servicios en el flujo. Pasa el cursor sobre cualquiera para ver qué hace.</span><span data-en>Eight services in the flow. Hover any of them to see what it does.</span></div>
+      </div>
+
+      <div class="mets">
+        <div class="met todo">
+          <div class="v">8<i>M</i> / 30<i>min</i></div>
+          <div class="k">⚠ <span data-es>MÉTRICA POR CONFIRMAR — necesito de ti: X millones en Y minutos (antes Z), y si fue local, staging o producción.</span><span data-en>METRIC TO CONFIRM — I need from you: X million in Y minutes (was Z), and whether it was local, staging or production.</span></div>
+        </div>
+        <div class="met"><div class="v">6</div><div class="k"><span data-es>servicios coordinados en el pipeline, cinco de ellos en NestJS</span><span data-en>services coordinated in the pipeline, five of them in NestJS</span></div></div>
+        <div class="met"><div class="v">3</div><div class="k"><span data-es>fuentes externas normalizadas a un mismo modelo de dominio</span><span data-en>external sources normalized into one domain model</span></div></div>
+      </div>
+
+      <div class="tgs">
+        <span class="tg">NestJS</span><span class="tg" data-es>Arquitectura hexagonal</span><span class="tg" data-en>Hexagonal architecture</span><span class="tg">Laravel</span><span class="tg">React</span><span class="tg">TypeScript</span><span class="tg">WebSockets</span><span class="tg">DTC</span><span class="tg">Sierra Chart</span><span class="tg">Rithmic</span><span class="tg">AWS</span><span class="tg">Docker</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="sec-head rv">
+    <div class="sec-k">02 — <span data-es>Otros productos</span><span data-en>Other products</span></div>
+    <h2 class="sec-t"><span data-es>Lo demás que corre hoy</span><span data-en>The rest that's running today</span></h2>
+  </div>
+  <div class="pgrid rv">
+    <div class="pcard">
+      <div class="top"><div><h3>Galaxia ERP</h3><div class="co">Galaxia Seguridad · <span data-es>Arquitecto</span><span data-en>Architect</span></div></div><div class="yr">2022—2026</div></div>
+      <p><span data-es>Monolito legacy convertido en <b>ERP de microservicios</b> con API Gateway y base de datos por dominio. Centraliza la operación nacional: 25K eventos diarios. Eliminó el 100% del costo en software de terceros.</span>
+         <span data-en>Legacy monolith turned into a <b>microservices ERP</b> with an API Gateway and per-domain databases. Centralizes nationwide operations: 25K daily events. Wiped out 100% of third-party software cost.</span></p>
+      <div class="tgs"><span class="tg">NestJS</span><span class="tg">API Gateway</span><span class="tg">MySQL</span><span class="tg">Docker</span></div>
+    </div>
+    <div class="pcard">
+      <div class="top"><div><h3>GalaxiTrack</h3><div class="co">Galaxia Seguridad · <span data-es>Arquitecto</span><span data-en>Architect</span></div></div><div class="yr">2023—2025</div></div>
+      <p><span data-es>App React Native con <b>GPS en background</b>, rondas y minuta digital, en 5 ciudades. Detrás, un servicio TCP que recibe y descifra tramas crudas de dispositivos GPS vehiculares.</span>
+         <span data-en>React Native app with <b>background GPS</b>, patrol rounds and digital logs, across 5 cities. Behind it, a TCP service ingesting and decrypting raw frames from vehicle GPS units.</span></p>
+      <div class="tgs"><span class="tg">React Native</span><span class="tg">NestJS</span><span class="tg">TCP</span><span class="tg">GPS</span></div>
+    </div>
+    <div class="pcard">
+      <div class="top"><div><h3>DrCeo</h3><div class="co">Satori IPS · <span data-es>Arquitecto</span><span data-en>Architect</span></div></div><div class="yr">2025—2026</div></div>
+      <p><span data-es>ERP clínico con <b>guía 3D procedural</b> en Three.js para anotar puntos de tratamiento, chatbot en Python sobre la base de datos, e integración con el IHCE del Ministerio de Salud. <b>Presentado en AMWC Latin America 2026.</b></span>
+         <span data-en>Clinical ERP with a <b>procedural 3D guide</b> in Three.js for annotating treatment points, a Python chatbot over the database, and integration with the Ministry of Health's IHCE. <b>Presented at AMWC Latin America 2026.</b></span></p>
+      <div class="tgs"><span class="tg">Laravel</span><span class="tg">React</span><span class="tg">Three.js</span><span class="tg">Python</span><span class="tg">NestJS</span></div>
+    </div>
+    <div class="pcard">
+      <div class="top"><div><h3>Reno Ectual</h3><div class="co">Reno Ectual · Fullstack</div></div><div class="yr">2025—2026</div></div>
+      <p><span data-es>Storefront en Next.js, ERP en Laravel y microservicio NestJS de <b>facturación electrónica integrado con la DIAN</b>. Tres piezas, un producto.</span>
+         <span data-en>Next.js storefront, Laravel ERP and a NestJS <b>e-invoicing microservice integrated with the DIAN</b>. Three pieces, one product.</span></p>
+      <div class="tgs"><span class="tg">Next.js</span><span class="tg">Laravel</span><span class="tg">NestJS</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="platform">
+  <div class="sec-head rv">
+    <div class="sec-k">03 — <span data-es>Trabajo de plataforma</span><span data-en>Platform work</span></div>
+    <h2 class="sec-t"><span data-es>Lo que atraviesa<br>varios productos</span><span data-en>What cuts across<br>several products</span></h2>
+    <p class="sec-d"><span data-es>No son productos, son cimientos. Es el trabajo que no se ve en una captura de pantalla y que decide si lo demás se sostiene.</span><span data-en>Not products — foundations. The work that doesn't show up in a screenshot and decides whether everything else holds.</span></p>
+  </div>
+  <div class="plat rv">
+    <div class="prow">
+      <h4><span data-es>SSO corporativo</span><span data-en>Corporate SSO</span></h4>
+      <div class="d"><span data-es>Migración completa del flujo de autenticación a <b>FusionAuth</b> como SSO transversal de la compañía. Ejecutado en Edgeclear Insights y en <b>Edgeclear X</b>, la plataforma de trading.</span>
+        <span data-en>Full migration of the auth flow to <b>FusionAuth</b> as the company-wide SSO. Executed on Edgeclear Insights and on <b>Edgeclear X</b>, the trading platform.</span></div>
+      <div class="s">FusionAuth · OAuth2<br>ArrowFin · 2025—2026</div>
+    </div>
+    <div class="prow">
+      <h4><span data-es>Infra AWS desde cero</span><span data-en>AWS infra from scratch</span></h4>
+      <div class="d"><span data-es>Diseño y despliegue completo: <b>ECS, ECR, ALB, RDS, CloudFront, S3, ACM, IAM</b>, con dockerización de punta a punta. Sin infraestructura previa.</span>
+        <span data-en>Designed and deployed end to end: <b>ECS, ECR, ALB, RDS, CloudFront, S3, ACM, IAM</b>, fully Dockerized. No prior infrastructure.</span></div>
+      <div class="s">AWS · Docker<br>ArrowFin · 2025</div>
+    </div>
+    <div class="prow">
+      <h4><span data-es>Monolito → microservicios</span><span data-en>Monolith → microservices</span></h4>
+      <div class="d"><span data-es>Diseño y ejecución de la migración de una aplicación monolítica legacy a una arquitectura de microservicios con <b>API Gateway y base de datos por dominio</b>.</span>
+        <span data-en>Designed and executed the migration of a legacy monolithic application to a microservices architecture with an <b>API Gateway and per-domain databases</b>.</span></div>
+      <div class="s">NestJS · MySQL<br>Galaxia · 2022—2026</div>
+    </div>
+    <div class="prow">
+      <h4><span data-es>Liderazgo técnico</span><span data-en>Technical leadership</span></h4>
+      <div class="d"><span data-es>Gestión de proyectos, levantamiento de requerimientos, definición de arquitectura y acompañamiento a desarrolladores junior.</span>
+        <span data-en>Project management, requirement gathering, architecture definition and mentoring junior developers.</span></div>
+      <div class="s">ArrowFin · Serviunix<br>2023—2026</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="sec-k rv">04 — <span data-es>Perfil</span><span data-en>About</span></div>
+  <div class="rv" style="margin-top:26px">
+    <p class="quote">
+      <span data-es>Diseño el esquema, la API, el frontend y la infra donde vive —<br><span class="grad">y me hago cargo de la decisión.</span></span>
+      <span data-en>I design the schema, the API, the frontend and the infra it runs on —<br><span class="grad">and I own the call.</span></span>
+    </p>
+    <div class="about-g">
+      <p data-es>Cinco años construyendo producto de punta a punta. He <b>liderado equipos</b> y también he entrado solo a proyectos donde no existía nada. Las dos cosas me acomodan.</p>
+      <p data-en>Five years building product end to end. I've <b>led teams</b> and I've walked alone into projects where nothing existed yet. Both suit me.</p>
+      <p data-es>Lo que no negocio: rendimiento, mantenibilidad, y que la solución resuelva un problema real. Hoy soy <b>Líder Técnico en ArrowFin</b> y estudio Ingeniería de Software en el Politécnico Grancolombiano.</p>
+      <p data-en>What I don't negotiate: performance, maintainability, and the solution solving a real problem. I'm currently <b>Technical Lead at ArrowFin</b> and studying Software Engineering at Politécnico Grancolombiano.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer id="contact"><div class="wrap">
+  <div class="sec-k rv">05 — <span data-es>Contacto</span><span data-en>Contact</span></div>
+  <div class="rv" style="margin-top:20px">
+    <h2 class="f-h"><span data-es>¿Tienes algo difícil<br>que construir?</span><span data-en>Got something hard<br>to build?</span></h2>
+    <a class="f-mail" href="mailto:OssRezz.13@gmail.com">OssRezz.13&#64;gmail.com</a>
+  </div>
+  <div class="f-row">
+    <span>© 2026 James Osorio Florez · Medellín, CO · UTC−5</span>
+    <span><a href="https://github.com/OssRezz" target="_blank" rel="noreferrer">GitHub</a><a href="https://linkedin.com/in/ossrezz" target="_blank" rel="noreferrer">LinkedIn</a><a href="tel:+573193270780">+57 319 327 0780</a><a href="#">CV</a></span>
+  </div>
+</div></footer>
+
+<script>
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let LANG='es';
+
+/* ============ EL GRAFO: una sola definición, dos representaciones ============ */
+const NODES=[
+  {id:'s1',x:10, y:20, label:'Sierra Execution',  tech:'NestJS · Hexagonal', own:1,
+   es:'<b>Sierra Execution Service.</b> Se conecta a Sierra Chart, trae los fills históricos por WebSocket y queda escuchando el <code>DTC</code> para operaciones y balances en vivo. Arquitectura hexagonal.',
+   en:'<b>Sierra Execution Service.</b> Connects to Sierra Chart, pulls historical fills over WebSocket and stays listening on <code>DTC</code> for live trades and balances. Hexagonal architecture.'},
+  {id:'s2',x:10, y:110,label:'Arrow Fetch',       tech:'Rithmic', own:0,
+   es:'<b>Arrow Fetch Service.</b> Mismo rol para el bróker Rithmic. <b>No lo construí yo</b> — lo administro y lo mantengo corriendo dentro del sistema.',
+   en:'<b>Arrow Fetch Service.</b> Same role for the Rithmic broker. <b>I did not build it</b> — I operate it and keep it running inside the system.'},
+  {id:'s3',x:10, y:200,label:'TPT',               tech:'Ingesta', own:0,
+   es:'<b>TPT.</b> La fuente de ingesta más reciente. <b>No la construí yo</b>, pero forma parte del flujo que coordino.',
+   en:'<b>TPT.</b> The most recent ingestion source. <b>I did not build it</b>, but it is part of the flow I coordinate.'},
+  {id:'fs',x:280,y:110,label:'FlowSync',          tech:'NestJS', own:1,
+   es:'<b>FlowSync.</b> Se conecta a las tres bases de datos de ingesta y consolida todo en la base de Insights. <b>Aquí vive la optimización</b> del pipeline de migración.',
+   en:'<b>FlowSync.</b> Connects to the three ingestion databases and consolidates everything into the Insights database. <b>This is where the pipeline optimization lives.</b>'},
+  {id:'tb',x:550,y:110,label:'Trade Builder',     tech:'NestJS', own:1,
+   es:'<b>Trade Builder.</b> Toma los fills ya movidos y construye los <i>trades</i> con toda su estadística: P&amp;L, expectancy, win rate, MFE/MAE.',
+   en:'<b>Trade Builder.</b> Takes the moved fills and builds the <i>trades</i> with their full statistics: P&amp;L, expectancy, win rate, MFE/MAE.'},
+  {id:'hm',x:820,y:110,label:'Hermes',            tech:'NestJS · Socket', own:1,
+   es:'<b>Hermes.</b> La capa de tiempo real. Mantiene el socket que conecta la API con el frontend y empuja los cambios en cuanto ocurren.',
+   en:'<b>Hermes.</b> The real-time layer. Holds the socket connecting the API to the frontend and pushes changes the moment they happen.'},
+  {id:'api',x:1090,y:60,label:'API',              tech:'Laravel', own:1,
+   es:'<b>API.</b> La superficie REST en Laravel que sirve la estadística ya construida al cliente.',
+   en:'<b>API.</b> The Laravel REST surface serving the built statistics to the client.'},
+  {id:'fe',x:1090,y:170,label:'Frontend',         tech:'React · TypeScript', own:1,
+   es:'<b>Frontend.</b> React + TypeScript. Calendarios, curvas de P&amp;L, distribuciones y tablas de operaciones — todo actualizándose en vivo.',
+   en:'<b>Frontend.</b> React + TypeScript. Calendars, P&amp;L curves, distributions and trade tables — all updating live.'}
+];
+const EDGES=[['s1','fs'],['s2','fs'],['s3','fs'],['fs','tb'],['tb','hm'],['hm','api'],['hm','fe'],['api','fe']];
+const STAGES=[{x:100,es:'Ingesta',en:'Ingestion'},{x:370,es:'Transporte',en:'Transport'},{x:640,es:'Dominio',en:'Domain'},{x:910,es:'Tiempo real',en:'Real time'},{x:1180,es:'Superficie',en:'Surface'}];
+const NW=180,NH=58,SVGW=1300,SVGH=300;
+const byId=id=>NODES.find(n=>n.id===id);
+
+function edgePath(a,b){
+  const A=byId(a),B=byId(b);
+  if(A.x===B.x){ const x=A.x+NW/2, y1=A.y+NH, y2=B.y; return `M${x} ${y1} L${x} ${y2}`; }
+  const x1=A.x+NW, y1=A.y+NH/2, x2=B.x, y2=B.y+NH/2;
+  return `M${x1} ${y1} C${x1+48} ${y1}, ${x2-48} ${y2}, ${x2} ${y2}`;
+}
+function buildSVG(ghost,uid){
+  let defs='',edges='',pulses='',nodes='',stages='';
+  EDGES.forEach(([a,b],i)=>{
+    const pid=uid+'-e'+i, d=edgePath(a,b);
+    defs+=`<path id="${pid}" d="${d}" fill="none"/>`;
+    edges+=`<use href="#${pid}" class="gedge" data-edge="${a}|${b}"/>`;
+    pulses+=`<circle r="${ghost?2.2:3}" class="gpulse" opacity="${ghost?.5:.95}">
+      <animateMotion dur="${2.6+i*0.42}s" repeatCount="indefinite" begin="${i*0.5}s"><mpath href="#${pid}"/></animateMotion>
+      <animate attributeName="opacity" values="0;${ghost?.5:.95};0" dur="${2.6+i*0.42}s" repeatCount="indefinite" begin="${i*0.5}s"/>
+    </circle>`;
+  });
+  if(!ghost) STAGES.forEach(s=>{stages+=`<text class="stagelab" x="${s.x}" y="12" text-anchor="middle">${s[LANG]}</text>`});
+  NODES.forEach(n=>{
+    nodes+=`<g class="gnode ${n.own?'own':'ext'}" data-node="${n.id}">
+      <rect x="${n.x}" y="${n.y}" width="${NW}" height="${NH}" rx="11"/>
+      <text class="nlab" x="${n.x+16}" y="${n.y+25}">${n.label}</text>
+      <text class="ntec" x="${n.x+16}" y="${n.y+43}">${n.tech}</text>
+    </g>`;
+  });
+  return `<svg viewBox="0 0 ${SVGW} ${SVGH}" xmlns="http://www.w3.org/2000/svg" ${ghost?'class="ghost" preserveAspectRatio="xMidYMid slice"':''}>
+    <defs>${defs}</defs>${stages}${edges}${nodes}${pulses}</svg>`;
+}
+function renderGraphs(){
+  document.getElementById('heroNet').innerHTML=buildSVG(true,'g');
+  const arch=document.getElementById('arch');
+  arch.innerHTML=buildSVG(false,'a');
+  wireDiagram(arch.querySelector('svg'));
+}
+function wireDiagram(svg){
+  const tip=document.getElementById('dtip');
+  const base=tip.innerHTML;
+  svg.querySelectorAll('.gnode').forEach(g=>{
+    g.addEventListener('mouseenter',()=>{
+      const n=byId(g.dataset.node);
+      svg.classList.add('dim'); g.classList.add('hot');
+      svg.querySelectorAll('.gedge').forEach(e=>{
+        const [a,b]=e.dataset.edge.split('|');
+        if(a===n.id||b===n.id){e.classList.add('hot');
+          svg.querySelector(`.gnode[data-node="${a===n.id?b:a}"]`)?.classList.add('hot')}
+      });
+      tip.innerHTML=n[LANG];
+    });
+    g.addEventListener('mouseleave',()=>{
+      svg.classList.remove('dim');
+      svg.querySelectorAll('.hot').forEach(x=>x.classList.remove('hot'));
+      tip.innerHTML=base;
+    });
+  });
+}
+
+/* ============ headline ============ */
+const HL={es:['Arquitecto','de','sistemas','§que','§aguantan.'],en:['Architect','of','systems','§that','§hold.']};
+function buildH1(){
+  const h=document.getElementById('h1'); h.innerHTML='';
+  HL[LANG].forEach((w,i)=>{
+    if(w[0]==='§'){ if(i===3)h.appendChild(document.createElement('br')); w=w.slice(1); }
+    const s=document.createElement('span'); s.className='w'+(i>=3?' grad':'');
+    s.textContent=w; s.style.animationDelay=(.12+i*.08)+'s';
+    if(reduce){s.style.animation='none';s.style.opacity=1;s.style.transform='none'}
+    h.appendChild(s); h.appendChild(document.createTextNode(' '));
+  });
+}
+
+/* ============ init ============ */
+buildH1(); renderGraphs();
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{
+  LANG=b.dataset.set;
+  document.documentElement.dataset.lang=LANG; document.documentElement.lang=LANG;
+  document.querySelectorAll('.lang button').forEach(x=>x.classList.toggle('on',x===b));
+  buildH1(); renderGraphs();
+});
+document.querySelectorAll('.magnet').forEach(el=>{
+  el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();
+    el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)'});
+  el.addEventListener('mouseleave',()=>el.style.transform='');
+});
+const hn=document.getElementById('heroNet');
+addEventListener('scroll',()=>hn.classList.toggle('faded',scrollY>innerHeight*.7),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body></html>

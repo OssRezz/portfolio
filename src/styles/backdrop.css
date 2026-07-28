@@ -1,0 +1,34 @@
+/* The hero topology, unlabelled — the same graph the first case study reveals. */
+#heroNet {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.16;
+  transition: opacity 1.2s var(--e);
+}
+#heroNet.faded { opacity: 0.045; }
+#heroNet svg {
+  width: 190%;
+  max-width: none;
+  animation: drift 34s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  0%   { transform: translate(-1.2%, -1%) scale(1); }
+  100% { transform: translate(1.2%, 1.4%) scale(1.05); }
+}
+
+.aur {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 18% 0%, rgba(110, 139, 255, 0.17), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 88% 12%, rgba(67, 229, 196, 0.1), transparent 62%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, rgba(110, 139, 255, 0.06), transparent 65%);
+}
+.vig {
+  position: fixed; inset: 0; z-index: 2; pointer-events: none;
+  background: radial-gradient(ellipse 95% 75% at 50% 45%, transparent 38%, rgba(6, 8, 16, 0.82) 100%);
+}

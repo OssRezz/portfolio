@@ -1,0 +1,84 @@
+header {
+  min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 140px 0 90px;
+  position: relative;
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 9px; align-self: flex-start;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--fg-2); padding: 7px 15px; border-radius: 100px;
+  border: 1px solid var(--line); background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+.badge .p {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--a2);
+  animation: bp 2.2s infinite;
+}
+@keyframes bp {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(67, 229, 196, 0.5); }
+  60%      { opacity: 0.6; box-shadow: 0 0 0 8px rgba(67, 229, 196, 0); }
+}
+
+h1 {
+  font-size: clamp(40px, 7.6vw, 98px);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  margin-top: 32px;
+}
+h1 .w {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: wIn 0.95s var(--e) forwards;
+}
+h1 .grad {
+  background: linear-gradient(105deg, var(--a2), var(--a1) 60%, #b79bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* `line-height: 1` ends the box at the baseline, and `background-clip: text`
+     only paints where there is background — so descenders (the tail of "g" in
+     "aguantan") fall outside the box and vanish. Extend the box downwards and
+     pull the layout back by the same amount. */
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+}
+@keyframes wIn { to { opacity: 1; transform: none; } }
+
+.sub {
+  margin-top: 30px; max-width: 580px;
+  font-size: clamp(16px, 2vw, 19px); color: var(--fg-2); line-height: 1.68;
+  opacity: 0; animation: fIn 1s var(--e) 0.7s forwards;
+}
+.sub b { color: var(--fg); font-weight: 500; }
+@keyframes fIn { to { opacity: 1; } }
+
+.hero-cta {
+  display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap;
+  opacity: 0; animation: fIn 1s var(--e) 0.85s forwards;
+}
+.mbtn {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+  padding: 14px 26px; border-radius: 100px; font-size: 14px; font-weight: 500;
+  transition: transform 0.25s var(--e), box-shadow 0.35s, background 0.35s;
+}
+.mbtn.pri {
+  background: linear-gradient(120deg, var(--a2), var(--a1));
+  color: var(--bg); font-weight: 600;
+  box-shadow: 0 8px 30px -10px rgba(110, 139, 255, 0.6);
+}
+.mbtn.pri:hover { transform: translateY(-2px); box-shadow: 0 14px 44px -10px rgba(110, 139, 255, 0.8); }
+.mbtn.sec {
+  border: 1px solid var(--line-2); color: var(--fg-2);
+  background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px);
+}
+.mbtn.sec:hover { color: var(--fg); background: rgba(255, 255, 255, 0.08); transform: translateY(-2px); }
+
+.hint {
+  position: absolute; bottom: 34px; left: 0;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--fg-3); max-width: 360px; line-height: 1.7;
+}
+@media (max-width: 640px) { .hint { display: none; } }

@@ -1,0 +1,26 @@
+/* Design tokens. Everything visual reads from here — no hardcoded colours elsewhere. */
+:root {
+  --bg: #060810;
+  --fg: #eaecf2;
+  --fg-2: #8e96a8;
+  --fg-3: #525b70;
+
+  --line: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.15);
+
+  --a1: #6e8bff;   /* primary accent  */
+  --a2: #43e5c4;   /* secondary accent */
+  --warn: #ffc46b;
+  --red: #ff6b6b;
+
+  --sans: "Instrument Sans", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --e: cubic-bezier(0.16, 1, 0.3, 1);
+  --wrap: 1200px;
+  --pad: 36px;
+}
+
+@media (max-width: 640px) {
+  :root { --pad: 20px; }
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JAMES OSORIO FLOREZ — FULLSTACK ENGINEER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --w:#FFFFFF; --k:#0B0B0B; --k-2:#5A5A5A; --k-3:#A8A8A8;
+  --rule:#000000; --hair:#E2E2E2; --red:#E63329;
+  --sans:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.19,1,.22,1);
+  --pad:34px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--w);color:var(--k);font-family:var(--sans);font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--red);color:var(--w)}
+.wrap{max-width:1400px;margin:0 auto;padding:0 var(--pad)}
+@media(max-width:640px){:root{--pad:18px}}
+
+/* visible grid columns */
+.cols{position:fixed;inset:0;z-index:0;pointer-events:none;max-width:1400px;margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:repeat(12,1fr);gap:0}
+.cols i{border-left:1px solid var(--hair)}
+.cols i:last-child{border-right:1px solid var(--hair)}
+@media(max-width:900px){.cols i:nth-child(n+7){display:none}.cols{grid-template-columns:repeat(6,1fr)}}
+.z{position:relative;z-index:2}
+
+/* ---- nav ---- */
+nav{position:fixed;top:0;left:0;right:0;z-index:80;background:var(--w);border-bottom:2px solid var(--k)}
+.nav-in{max-width:1400px;margin:0 auto;padding:0 var(--pad);height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.mk{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.1em}
+.mk s{text-decoration:none;color:var(--red)}
+.nl{display:flex;gap:0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;height:100%}
+.nl a{display:flex;align-items:center;padding:0 18px;color:var(--k);text-decoration:none;border-left:1px solid var(--hair);transition:background .2s,color .2s}
+.nl a:last-child{border-right:1px solid var(--hair)}
+.nl a:hover{background:var(--k);color:var(--w)}
+.lang{display:flex;font-family:var(--mono);font-size:11px;font-weight:700;border:1px solid var(--k)}
+.lang button{background:var(--w);border:0;padding:5px 10px;cursor:pointer;font:inherit;color:var(--k);transition:.2s}
+.lang button.on{background:var(--k);color:var(--w)}
+@media(max-width:900px){.nl{display:none}}
+
+/* ---- hero ---- */
+header{padding-top:56px;border-bottom:2px solid var(--k)}
+.hero-top{display:grid;grid-template-columns:repeat(12,1fr);border-bottom:1px solid var(--hair)}
+.ht-cell{padding:14px 0;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--k-2);grid-column:span 3;border-right:1px solid var(--hair);padding-right:14px}
+.ht-cell:last-child{border-right:0}
+.ht-cell b{display:block;color:var(--k);font-weight:700;margin-top:3px;font-size:11.5px}
+@media(max-width:900px){.ht-cell{grid-column:span 6}.ht-cell:nth-child(2){border-right:0}}
+
+.mega{padding:52px 0 0}
+.mega h1{
+  font-size:clamp(56px,15.5vw,232px);line-height:.82;font-weight:800;letter-spacing:-.055em;
+  text-transform:uppercase;
+}
+.mega h1 .ln{display:block;overflow:hidden}
+.mega h1 .ln>span{display:block;transform:translateY(103%);animation:up 1s var(--ease) forwards}
+.mega h1 .ln:nth-child(2)>span{animation-delay:.08s}
+@keyframes up{to{transform:translateY(0)}}
+.mega h1 .out{-webkit-text-stroke:2px var(--k);color:transparent}
+.mega h1 .rd{color:var(--red)}
+
+.hero-b{display:grid;grid-template-columns:repeat(12,1fr);gap:0;margin-top:44px;padding-bottom:44px}
+.hb-l{grid-column:span 7;padding-right:50px}
+.hb-r{grid-column:span 5;border-left:1px solid var(--hair);padding-left:32px}
+.role-line{font-family:var(--mono);font-size:clamp(11px,1.3vw,13px);letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding-bottom:18px;border-bottom:2px solid var(--k);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.role-line s{text-decoration:none;color:var(--red)}
+.lede{font-size:clamp(17px,2.1vw,24px);font-weight:500;line-height:1.32;letter-spacing:-.02em;margin-top:22px}
+.lede mark{background:var(--red);color:var(--w);padding:0 5px}
+.hb-r p{font-size:13.5px;color:var(--k-2);line-height:1.65}
+.hb-r p+p{margin-top:14px}
+.btns{display:flex;gap:0;margin-top:26px;border:2px solid var(--k);width:fit-content;max-width:100%;flex-wrap:wrap}
+.btns a{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:14px 22px;text-decoration:none;color:var(--k);border-right:2px solid var(--k);transition:.22s}
+.btns a:last-child{border-right:0}
+.btns a:hover{background:var(--k);color:var(--w)}
+.btns a.f{background:var(--red);color:var(--w)}
+.btns a.f:hover{background:var(--k)}
+@media(max-width:900px){.hb-l,.hb-r{grid-column:span 12;padding:0}.hb-r{border-left:0;border-top:1px solid var(--hair);padding-top:22px;margin-top:26px}}
+
+/* ---- stat band ---- */
+.band{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:2px solid var(--k)}
+.bd{padding:32px 24px 30px 0;border-right:1px solid var(--hair);position:relative;transition:background .3s,color .3s}
+.bd:last-child{border-right:0}
+.bd:hover{background:var(--k);color:var(--w);padding-left:20px}
+.bd:hover .bl{color:var(--k-3)}
+.bd:hover .bn s{color:var(--red)}
+.bn{font-size:clamp(38px,6.2vw,84px);font-weight:800;letter-spacing:-.06em;line-height:.86}
+.bn s{text-decoration:none;color:var(--red);transition:color .3s}
+.bl{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--k-2);margin-top:14px;line-height:1.5;padding-right:12px;transition:color .3s}
+@media(max-width:900px){.band{grid-template-columns:1fr 1fr}.bd:nth-child(2n){border-right:0}.bd:nth-child(-n+2){border-bottom:1px solid var(--hair)}}
+
+/* ---- section headers ---- */
+.sh{display:grid;grid-template-columns:repeat(12,1fr);border-bottom:2px solid var(--k);padding:16px 0;align-items:baseline}
+.sh .num{grid-column:span 1;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--red)}
+.sh .ti{grid-column:span 7;font-size:clamp(20px,3vw,34px);font-weight:700;letter-spacing:-.04em;text-transform:uppercase}
+.sh .rt{grid-column:span 4;text-align:right;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--k-2)}
+@media(max-width:900px){.sh .num{grid-column:span 2}.sh .ti{grid-column:span 10}.sh .rt{display:none}}
+
+/* ---- project rows ---- */
+.prow{
+  display:grid;grid-template-columns:repeat(12,1fr);align-items:center;
+  border-bottom:1px solid var(--hair);cursor:pointer;position:relative;overflow:hidden;
+  transition:color .35s var(--ease);
+}
+.prow::before{content:'';position:absolute;inset:0;background:var(--k);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease);z-index:0}
+.prow:hover::before{transform:scaleY(1);transform-origin:top}
+.prow:hover{color:var(--w)}
+.prow>*{position:relative;z-index:1;padding:26px 14px 26px 0}
+.pn{grid-column:span 1;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--k-3);transition:color .35s}
+.prow:hover .pn{color:var(--red)}
+.pt{grid-column:span 4;font-size:clamp(24px,3.6vw,44px);font-weight:700;letter-spacing:-.045em;text-transform:uppercase;line-height:.95}
+.pd{grid-column:span 5;font-size:13.5px;line-height:1.6;color:var(--k-2);transition:color .35s;padding-right:26px}
+.prow:hover .pd{color:var(--k-3)}
+.pd b{color:var(--k);font-weight:700;transition:color .35s}
+.prow:hover .pd b{color:var(--w)}
+.pr{grid-column:span 2;text-align:right;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--k-2);line-height:1.9;transition:color .35s}
+.prow:hover .pr{color:var(--w)}
+.pr em{font-style:normal;display:block;color:var(--k-3)}
+.pr .go{display:inline-block;transform:translateX(-6px);opacity:0;transition:.4s var(--ease);color:var(--red);font-size:15px}
+.prow:hover .pr .go{opacity:1;transform:translateX(0)}
+@media(max-width:900px){.pn{grid-column:span 2}.pt{grid-column:span 10}.pd{grid-column:2/span 11;padding-top:0}.pr{grid-column:2/span 11;text-align:left;padding-top:0}}
+
+/* ---- stack table ---- */
+.strow{display:grid;grid-template-columns:repeat(12,1fr);border-bottom:1px solid var(--hair);padding:22px 0}
+.strow h4{grid-column:span 3;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.strow .it{grid-column:span 9;display:flex;flex-wrap:wrap;gap:8px}
+.strow .it span{font-family:var(--mono);font-size:12px;font-weight:500;padding:6px 12px;border:1px solid var(--k);transition:.2s}
+.strow .it span:hover{background:var(--red);border-color:var(--red);color:var(--w)}
+@media(max-width:900px){.strow h4{grid-column:span 12;margin-bottom:14px}.strow .it{grid-column:span 12}}
+
+/* ---- about ---- */
+.abt{display:grid;grid-template-columns:repeat(12,1fr);padding:56px 0}
+.abt .big{grid-column:span 7;font-size:clamp(24px,3.9vw,50px);font-weight:700;letter-spacing:-.045em;line-height:1.08;text-transform:uppercase;padding-right:40px}
+.abt .big mark{background:var(--red);color:var(--w);padding:0 6px}
+.abt .sm{grid-column:span 5;border-left:1px solid var(--hair);padding-left:32px;font-size:14.5px;color:var(--k-2);line-height:1.72}
+.abt .sm p+p{margin-top:16px}
+.abt .sm b{color:var(--k);font-weight:700}
+@media(max-width:900px){.abt .big,.abt .sm{grid-column:span 12;padding:0}.abt .sm{border-left:0;border-top:1px solid var(--hair);padding-top:24px;margin-top:28px}}
+
+/* ---- footer ---- */
+footer{background:var(--k);color:var(--w);border-top:2px solid var(--k);position:relative;z-index:2}
+.fmega{padding:78px 0 0;font-size:clamp(44px,13vw,190px);line-height:.84;font-weight:800;letter-spacing:-.055em;text-transform:uppercase}
+.fmega .out{-webkit-text-stroke:2px var(--w);color:transparent}
+.fmail{display:block;margin-top:46px;padding:26px 0;border-top:2px solid var(--w);border-bottom:2px solid var(--w);font-family:var(--mono);font-size:clamp(14px,3vw,30px);font-weight:700;letter-spacing:-.01em;color:var(--w);text-decoration:none;display:flex;justify-content:space-between;align-items:center;gap:18px;transition:.25s}
+.fmail:hover{background:var(--red);padding-left:20px;padding-right:20px}
+.frow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:26px 0 34px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--k-3)}
+.frow a{color:var(--k-3);text-decoration:none;margin-left:22px;transition:color .2s}
+.frow a:hover{color:var(--red)}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+html:not([data-lang="en"]) [data-en]{display:none!important}
+html[data-lang="en"] [data-es]{display:none!important}
+</style>
+</head>
+<body>
+<div class="cols"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<nav><div class="nav-in">
+  <div class="mk">J.O.F<s>.</s> — 2026</div>
+  <div class="nl">
+    <a href="#work"><span data-es>Trabajo</span><span data-en>Work</span></a>
+    <a href="#stack">Stack</a>
+    <a href="#about"><span data-es>Perfil</span><span data-en>About</span></a>
+    <a href="#contact"><span data-es>Contacto</span><span data-en>Contact</span></a>
+  </div>
+  <div class="lang"><button class="on" data-set="es">ES</button><button data-set="en">EN</button></div>
+</div></nav>
+
+<header><div class="wrap z">
+  <div class="hero-top">
+    <div class="ht-cell"><span data-es>Ubicación</span><span data-en>Located</span><b>MEDELLÍN, COLOMBIA</b></div>
+    <div class="ht-cell"><span data-es>Actualmente</span><span data-en>Currently</span><b>ARROWFIN — TECH LEAD</b></div>
+    <div class="ht-cell"><span data-es>Experiencia</span><span data-en>Experience</span><b data-es>5+ AÑOS</b><b data-en>5+ YEARS</b></div>
+    <div class="ht-cell"><span data-es>Estado</span><span data-en>Status</span><b style="color:var(--red)" data-es>DISPONIBLE</b><b style="color:var(--red)" data-en>AVAILABLE</b></div>
+  </div>
+
+  <div class="mega">
+    <h1>
+      <span class="ln"><span>Fullstack</span></span>
+      <span class="ln"><span class="out">Engineer<span class="rd">.</span></span></span>
+    </h1>
+  </div>
+
+  <div class="hero-b">
+    <div class="hb-l">
+      <div class="role-line">
+        <span>JAMES OSORIO FLOREZ</span>
+        <span><span data-es>ARQUITECTO DE SOFTWARE</span><span data-en>SOFTWARE ARCHITECT</span> <s>/</s> BACKEND <s>/</s> CLOUD</span>
+      </div>
+      <p class="lede">
+        <span data-es>Construyo producto de punta a punta. Del esquema de base de datos al deploy en producción — y <mark>me hago cargo de la decisión</mark> en cada capa.</span>
+        <span data-en>I build product end to end. From the database schema to the production deploy — and <mark>I own the call</mark> at every layer.</span>
+      </p>
+      <div class="btns">
+        <a class="f" href="#work"><span data-es>Ver trabajo</span><span data-en>See work</span> →</a>
+        <a href="#contact">CV ↓</a>
+        <a href="mailto:OssRezz.13@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="hb-r">
+      <p data-es>Cinco años construyendo sistemas web, móviles y cloud que procesan millones de registros en producción. Microservicios, tiempo real, infraestructura AWS desde cero.</p>
+      <p data-en>Five years building web, mobile and cloud systems that process millions of records in production. Microservices, real time, AWS infrastructure from scratch.</p>
+      <p data-es>He liderado equipos y también he entrado solo a proyectos donde no existía nada. Las dos cosas me acomodan.</p>
+      <p data-en>I've led teams and I've walked alone into projects where nothing existed yet. Both suit me.</p>
+    </div>
+  </div>
+</div></header>
+
+<div class="wrap z">
+  <div class="band rv">
+    <div class="bd"><div class="bn" data-count="8">0<s>M</s></div><div class="bl"><span data-es>Registros migrados en 30 min — antes 28 horas</span><span data-en>Records migrated in 30 min — was 28 hours</span></div></div>
+    <div class="bd"><div class="bn" data-count="98">0<s>%</s></div><div class="bl"><span data-es>Reducción de tiempo de ejecución</span><span data-en>Execution time reduction</span></div></div>
+    <div class="bd"><div class="bn" data-count="25">0<s>K</s></div><div class="bl"><span data-es>Eventos diarios a nivel nacional</span><span data-en>Daily events nationwide</span></div></div>
+    <div class="bd"><div class="bn" data-count="6">0<s>M+</s></div><div class="bl"><span data-es>Operaciones financieras en vivo</span><span data-en>Financial trades live</span></div></div>
+  </div>
+
+  <section id="work" style="padding-top:74px">
+    <div class="sh"><span class="num">01</span><h2 class="ti"><span data-es>Trabajo seleccionado</span><span data-en>Selected work</span></h2><span class="rt">2022 / 2026 — 5 <span data-es>PROYECTOS</span><span data-en>PROJECTS</span></span></div>
+
+    <div class="prow rv">
+      <div class="pn">001</div>
+      <div class="pt">ArrowFin</div>
+      <div class="pd"><span data-es>Plataforma financiera. API Laravel + React TS + microservicios NestJS y <b>toda la infra AWS desde cero</b>. 6M+ operaciones en vivo por WebSockets.</span><span data-en>Financial platform. Laravel API + React TS + NestJS microservices and <b>the whole AWS infra from scratch</b>. 6M+ trades live over WebSockets.</span></div>
+      <div class="pr">FINTECH<em>2025 —</em><span class="go">→</span></div>
+    </div>
+
+    <div class="prow rv">
+      <div class="pn">002</div>
+      <div class="pt">Galaxia ERP</div>
+      <div class="pd"><span data-es>Monolito legacy → <b>ERP de microservicios</b> con API Gateway y DB por dominio. 25K eventos diarios. Eliminó 100% del costo en software de terceros.</span><span data-en>Legacy monolith → <b>microservices ERP</b> with API Gateway and per-domain DBs. 25K daily events. Wiped 100% of third-party software cost.</span></div>
+      <div class="pr"><span data-es>ARQUITECTURA</span><span data-en>ARCHITECTURE</span><em>2022 — 2026</em><span class="go">→</span></div>
+    </div>
+
+    <div class="prow rv">
+      <div class="pn">003</div>
+      <div class="pt">GalaxiTrack</div>
+      <div class="pd"><span data-es>React Native con <b>GPS en background</b> en 5 ciudades, más un servicio TCP que descifra tramas crudas de GPS vehiculares en tiempo real.</span><span data-en>React Native with <b>background GPS</b> across 5 cities, plus a TCP service decrypting raw vehicle-GPS frames in real time.</span></div>
+      <div class="pr">MOBILE / TCP<em>2023 — 2025</em><span class="go">→</span></div>
+    </div>
+
+    <div class="prow rv">
+      <div class="pn">004</div>
+      <div class="pt">Satori IPS</div>
+      <div class="pd"><span data-es>ERP clínico con <b>guía 3D procedural</b> en Three.js, chatbot Python sobre la BD e integración con el IHCE del Ministerio de Salud.</span><span data-en>Clinical ERP with a <b>procedural 3D guide</b> in Three.js, a Python chatbot over the DB and integration with the Ministry of Health IHCE.</span></div>
+      <div class="pr">HEALTHTECH<em>2025 — 2026</em><span class="go">→</span></div>
+    </div>
+
+    <div class="prow rv">
+      <div class="pn">005</div>
+      <div class="pt">Reno Ectual</div>
+      <div class="pd"><span data-es>Storefront Next.js + ERP Laravel + microservicio NestJS de <b>facturación electrónica DIAN</b>. Tres piezas, un producto.</span><span data-en>Next.js storefront + Laravel ERP + NestJS <b>DIAN e-invoicing microservice</b>. Three pieces, one product.</span></div>
+      <div class="pr">ECOMMERCE<em>2025 — 2026</em><span class="go">→</span></div>
+    </div>
+  </section>
+
+  <section id="stack" style="padding-top:74px">
+    <div class="sh"><span class="num">02</span><h2 class="ti">Stack</h2><span class="rt"><span data-es>HERRAMIENTAS, NO RELIGIONES</span><span data-en>TOOLS, NOT RELIGIONS</span></span></div>
+    <div class="rv">
+      <div class="strow"><h4><span data-es>Principal</span><span data-en>Primary</span></h4><div class="it"><span>Node.js</span><span>NestJS</span><span>React</span><span>TypeScript</span><span>Next.js</span><span>React Native</span><span>Laravel</span><span>PHP</span><span>Microservices</span></div></div>
+      <div class="strow"><h4><span data-es>Datos / Infra</span><span data-en>Data / Infra</span></h4><div class="it"><span>MySQL</span><span>PostgreSQL</span><span>Docker</span><span>AWS ECS</span><span>ECR</span><span>ALB</span><span>RDS</span><span>S3</span><span>CloudFront</span></div></div>
+      <div class="strow"><h4><span data-es>Tiempo real</span><span data-en>Real time</span></h4><div class="it"><span>WebSockets</span><span>TCP / Sockets</span><span>REST APIs</span><span>API Gateway</span></div></div>
+      <div class="strow"><h4><span data-es>También</span><span data-en>Also</span></h4><div class="it"><span>Angular</span><span>Python</span><span>Django</span><span>Three.js</span><span>Git</span><span>Linux</span><span>Scrum</span></div></div>
+    </div>
+  </section>
+
+  <section id="about" style="padding-top:74px">
+    <div class="sh"><span class="num">03</span><h2 class="ti"><span data-es>Perfil</span><span data-en>About</span></h2><span class="rt">MEDELLÍN, CO — UTC−5</span></div>
+    <div class="abt rv">
+      <div class="big">
+        <span data-es>No me limito a una capa. Diseño el esquema, la API, el frontend y la infra — y <mark>respondo por eso</mark>.</span>
+        <span data-en>I don't stop at one layer. I design the schema, the API, the frontend and the infra — and <mark>I answer for it</mark>.</span>
+      </div>
+      <div class="sm">
+        <p data-es>Lo que no negocio es el <b>rendimiento</b>, la <b>mantenibilidad</b> y que la solución resuelva un problema de negocio real — no solo un ticket del backlog.</p>
+        <p data-en>What I don't negotiate is <b>performance</b>, <b>maintainability</b>, and the solution actually solving a real business problem — not just a backlog ticket.</p>
+        <p data-es>Hoy: <b>Líder Técnico en ArrowFin</b>. Estudiando Ingeniería de Software en el Politécnico Grancolombiano. Antes: Serviunix (Dev Lead), Hack A Boss, y varios proyectos freelance donde aprendí a construir con lo que hay.</p>
+        <p data-en>Today: <b>Technical Lead at ArrowFin</b>. Studying Software Engineering at Politécnico Grancolombiano. Before: Serviunix (Dev Lead), Hack A Boss, and a run of freelance projects where I learned to build with whatever was on hand.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer id="contact"><div class="wrap">
+  <div class="fmega"><span data-es>Hablemos</span><span data-en>Let's talk</span><br><span class="out" data-es>Ahora</span><span class="out" data-en>Now</span><span style="color:var(--red)">.</span></div>
+  <a class="fmail" href="mailto:OssRezz.13@gmail.com"><span>OssRezz.13&#64;gmail.com</span><span>→</span></a>
+  <div class="frow">
+    <span>© 2026 JAMES OSORIO FLOREZ — MEDELLÍN, COLOMBIA</span>
+    <span><a href="https://github.com/OssRezz" target="_blank" rel="noreferrer">GitHub</a><a href="https://linkedin.com/in/ossrezz" target="_blank" rel="noreferrer">LinkedIn</a><a href="tel:+573193270780">+57 319 327 0780</a><a href="#">CV PDF</a></span>
+  </div>
+</div></footer>
+
+<script>
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{
+  document.documentElement.dataset.lang=b.dataset.set;document.documentElement.lang=b.dataset.set;
+  document.querySelectorAll('.lang button').forEach(x=>x.classList.toggle('on',x===b));
+});
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(n=>{
+    if(n.dataset.done)return;n.dataset.done=1;
+    const to=+n.dataset.count,suf=n.querySelector('s')?.textContent||'',t0=performance.now(),D=1300;
+    (function s(t){const p=Math.min(1,(t-t0)/D),e2=1-Math.pow(1-p,4);
+      n.innerHTML=Math.round(to*e2)+'<s>'+suf+'</s>';if(p<1)requestAnimationFrame(s)})(t0);
+  });
+  io.unobserve(e.target);
+}),{threshold:.14});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body></html>

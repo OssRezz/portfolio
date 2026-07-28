@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Portafolio — James Osorio Florez
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sitio personal. Una sola página, bilingüe (ES/EN), con los diagramas de arquitectura
+de cuatro sistemas reales dibujados desde datos tipados.
 
-## Available Scripts
+**En vivo:** https://ossrezz.github.io/portfolio
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Pieza | Elección |
+| --- | --- |
+| Build | Vite 8 |
+| UI | React 19 + TypeScript |
+| Estilos | CSS con custom properties, un archivo por zona (`src/styles/`) |
+| Deploy | GitHub Pages vía `gh-pages` |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Sin framework de UI, sin librería de animación, sin dependencias de runtime más allá
+de React. Los diagramas son SVG generado desde una definición de grafo — no imágenes.
 
-### `npm test`
+## Cómo corre
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+npm run dev       # http://localhost:5173/portfolio/
+npm run build     # -> dist/
+npm run preview   # sirve dist/ como quedaría en producción
+```
 
-### `npm run build`
+> El sitio vive en un sub-path (`/portfolio/`), así que `base` está fijado en
+> `vite.config.ts`. Cualquier ruta a un asset de `public/` debe pasar por
+> `import.meta.env.BASE_URL` — ver `src/cv.ts`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deploy
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run deploy    # build + publica dist/ en la rama gh-pages
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Estructura
 
-### `npm run eject`
+```
+src/
+  data/
+    graphs.ts     Definición de los cuatro diagramas: nodos, aristas, lentes.
+                  Cambiar la arquitectura aquí cambia el dibujo.
+    content.ts    Todo el copy, bilingüe. Ningún texto vive en un componente.
+  components/
+    Graph.tsx     Renderiza un grafo a SVG; hover resalta el nodo y sus vecinos,
+                  las lentes resaltan un flujo completo.
+    CaseStudy.tsx Un caso: cabecera, problema, diagrama, métricas, bloques.
+    ...
+  styles/         Un archivo por zona, importados desde index.css.
+  lang.tsx        Contexto de idioma. `t({es, en})` resuelve al activo.
+  cv.ts           Rutas de los PDFs del CV, con el prefijo del sub-path.
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Añadir un caso
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Definir su grafo en `src/data/graphs.ts`.
+2. Añadir la entrada en `CASES` dentro de `src/data/content.ts`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+No hay que tocar ningún componente: la página se arma desde esos dos archivos.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Nota sobre `dangerouslySetInnerHTML`
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+El copy usa `<b>`, `<code>` e `<i>` para enfatizar dentro de párrafos largos.
+Todo ese texto es estático y está en el repositorio — nunca proviene de una entrada
+de usuario ni de una API. No hay superficie de XSS.
